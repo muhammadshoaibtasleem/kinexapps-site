@@ -3,7 +3,17 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Kinexapps Privacy Policy — How we handle your data.",
+  description:
+    "Kinexapps Privacy Policy — Learn how we collect, use, and protect your data across all our iOS apps. We prioritise your privacy and data security.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy — Kinexapps",
+    description:
+      "How Kinexapps handles and protects your data across all our apps.",
+    url: "https://kinexapps.com/privacy",
+  },
 };
 
 export default function PrivacyPage() {

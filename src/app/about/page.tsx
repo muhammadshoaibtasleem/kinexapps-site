@@ -2,9 +2,18 @@ import type { Metadata } from "next";
 import { Target, Eye } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us — Our Mission & Story",
   description:
-    "Kinexapps is an Australian app studio building innovative mobile experiences.",
+    "Kinexapps is an Australian mobile app studio dedicated to building free, innovative iOS apps. Learn about our mission, values, and the team behind 7 published apps on the App Store.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Kinexapps — Australian Mobile App Studio",
+    description:
+      "Learn about our mission to build free, high-quality iOS apps for everyone.",
+    url: "https://kinexapps.com/about",
+  },
 };
 
 const values = [

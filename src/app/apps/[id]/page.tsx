@@ -37,6 +37,95 @@ export async function generateMetadata({
   return {
     title: `${app.name} — ${app.subtitle}`,
     description: app.description,
+    keywords: [
+      app.name,
+      app.subtitle,
+      app.category,
+      "iOS app",
+      "free app",
+      "App Store",
+      "Kinexapps",
+      ...app.platforms.map((p) => `${p} app`),
+    ],
+    alternates: {
+      canonical: `/apps/${app.id}`,
+    },
+    openGraph: {
+      type: "website",
+      title: `${app.name} — ${app.subtitle}`,
+      description: app.description,
+      url: `https://kinexapps.com/apps/${app.id}`,
+      siteName: "Kinexapps",
+      images: [
+        {
+          url: app.icon,
+          width: 512,
+          height: 512,
+          alt: `${app.name} app icon`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title: `${app.name} — ${app.subtitle}`,
+      description: app.description,
+      images: [app.icon],
+    },
+  };
+}
+
+function getAppJsonLd(app: (typeof apps)[number]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: app.name,
+    description: app.description,
+    url: `https://kinexapps.com/apps/${app.id}`,
+    image: `https://kinexapps.com${app.icon}`,
+    applicationCategory: app.category === "Games" ? "GameApplication" : app.category === "Education" ? "EducationalApplication" : "UtilitiesApplication",
+    operatingSystem: "iOS",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "AUD",
+    },
+    aggregateRating: undefined,
+    author: {
+      "@type": "Organization",
+      name: "Kinexapps",
+      url: "https://kinexapps.com",
+    },
+    installUrl: app.appStoreUrl,
+    featureList: app.features.join(", "),
+    contentRating: app.ageRating,
+    fileSize: app.size,
+  };
+}
+
+function getAppBreadcrumbJsonLd(app: (typeof apps)[number]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://kinexapps.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Apps",
+        item: "https://kinexapps.com/#apps",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: app.name,
+        item: `https://kinexapps.com/apps/${app.id}`,
+      },
+    ],
   };
 }
 
@@ -51,6 +140,14 @@ export default async function AppPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAppJsonLd(app)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getAppBreadcrumbJsonLd(app)) }}
+      />
       {/* Header */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-surface/80 to-transparent pointer-events-none" />

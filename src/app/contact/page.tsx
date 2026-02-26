@@ -2,8 +2,18 @@ import type { Metadata } from "next";
 import { Mail, MapPin, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Kinexapps for support, feedback, or inquiries.",
+  title: "Contact Us — Support & Inquiries",
+  description:
+    "Get in touch with Kinexapps for app support, feedback, partnership inquiries, or bug reports. We'd love to hear from you.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Kinexapps — Support & Inquiries",
+    description:
+      "Reach out for app support, feedback, or business inquiries.",
+    url: "https://kinexapps.com/contact",
+  },
 };
 
 export default function ContactPage() {

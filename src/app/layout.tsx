@@ -16,32 +16,81 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kinexapps — Mobile App Studio",
+    default: "Kinexapps — Australian Mobile App Studio | iOS Games & Education Apps",
     template: "%s — Kinexapps",
   },
   description:
-    "Australian app studio building games, education tools, and AI-powered utilities for iOS. 7 published apps on the App Store.",
+    "Kinexapps is an Australian mobile app studio crafting free iOS games, education tools, and AI-powered utilities. Explore 7 published apps including SnapFix, Theory Elite, Laser Maze, and more on the App Store.",
   keywords: [
     "Kinexapps",
     "iOS apps",
+    "Australian app developer",
     "mobile games",
     "education apps",
-    "Australian app developer",
-    "App Store",
+    "AI apps",
+    "free iOS games",
+    "App Store apps",
+    "Swift developer",
+    "iPhone games",
+    "iPad apps",
+    "SnapFix",
+    "Theory Elite",
+    "ABC Kids",
+    "Laser Maze",
+    "Rollscape",
+    "Orb Galaxy Sort",
+    "Color Ball Drop",
+    "puzzle games iOS",
+    "kids learning apps",
+    "home repair app",
+    "Melbourne app studio",
   ],
-  authors: [{ name: "Kinexapps" }],
+  authors: [{ name: "Kinexapps", url: "https://kinexapps.com" }],
   creator: "Kinexapps",
   publisher: "Kinexapps",
   metadataBase: new URL("https://kinexapps.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_AU",
+    url: "https://kinexapps.com",
     siteName: "Kinexapps",
-    title: "Kinexapps — Mobile App Studio",
+    title: "Kinexapps — Australian Mobile App Studio",
     description:
-      "Australian app studio building games, education tools, and AI-powered utilities for iOS.",
+      "Free iOS games, education tools, and AI-powered utilities. 7 published apps on the App Store built with Swift & SwiftUI.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Kinexapps — Australian Mobile App Studio",
+        type: "image/png",
+      },
+    ],
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kinexapps — Australian Mobile App Studio",
+    description:
+      "Free iOS games, education tools, and AI-powered utilities. 7 published apps on the App Store.",
+    images: ["/og-image.png"],
+    creator: "@kinexapps",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "technology",
+  classification: "Mobile App Development Studio",
 };
 
 export default function RootLayout({

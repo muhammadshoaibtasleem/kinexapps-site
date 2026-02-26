@@ -3,7 +3,17 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Kinexapps Terms of Service.",
+  description:
+    "Kinexapps Terms of Service — Review the terms and conditions for using our iOS apps and website. Understand your rights and responsibilities.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms of Service — Kinexapps",
+    description:
+      "Terms and conditions for using Kinexapps apps and website.",
+    url: "https://kinexapps.com/terms",
+  },
 };
 
 export default function TermsPage() {
