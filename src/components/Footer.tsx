@@ -22,16 +22,16 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border bg-surface/30">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded-md bg-accent flex items-center justify-center">
+              <div className="w-7 h-7 rounded-md bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center shadow-sm">
                 <span className="text-white text-xs font-bold">K</span>
               </div>
-              <span className="text-[14px] font-semibold">Kinexapps</span>
+              <span className="text-[14px] font-semibold text-foreground">Kinexapps</span>
             </div>
             <p className="text-[13px] text-muted leading-relaxed">
               Australian app studio crafting mobile experiences.
@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-[12px] uppercase tracking-wider text-muted-strong font-medium mb-4">
+              <h4 className="text-[12px] uppercase tracking-wider text-foreground font-semibold mb-4">
                 {title}
               </h4>
               <ul className="space-y-2.5">

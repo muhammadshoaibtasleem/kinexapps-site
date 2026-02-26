@@ -22,15 +22,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/70 backdrop-blur-xl border-b border-border"
+          ? "bg-white/80 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center shadow-sm">
             <span className="text-white text-sm font-bold">K</span>
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-foreground">
@@ -43,7 +43,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-[13px] text-muted hover:text-foreground transition-colors"
+              className="text-[13px] text-muted hover:text-foreground transition-colors font-medium"
             >
               {l.label}
             </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
             href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium text-background bg-foreground px-4 py-1.5 rounded-full hover:bg-foreground/90 transition-colors"
+            className="text-[13px] font-semibold text-white bg-foreground px-5 py-2 rounded-full hover:bg-foreground/90 transition-all hover:shadow-md"
           >
             App Store
           </a>
@@ -60,7 +60,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-1.5 text-muted hover:text-foreground"
+          className="md:hidden p-2 text-muted hover:text-foreground rounded-lg hover:bg-surface transition-colors"
           aria-label="Menu"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -68,14 +68,14 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-border shadow-lg">
           <div className="px-6 py-4 space-y-1">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-2.5 text-[14px] text-muted hover:text-foreground transition-colors"
+                className="block py-3 text-[15px] text-muted hover:text-foreground transition-colors font-medium"
               >
                 {l.label}
               </Link>
@@ -84,7 +84,7 @@ export default function Navbar() {
               href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-2 text-[13px] font-medium text-background bg-foreground px-4 py-2 rounded-full"
+              className="inline-block mt-3 text-[13px] font-semibold text-white bg-foreground px-5 py-2.5 rounded-full"
             >
               App Store
             </a>
