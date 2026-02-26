@@ -3,17 +3,17 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center px-4">
-        <div className="text-8xl font-extrabold gradient-text mb-4">404</div>
-        <h1 className="text-2xl font-bold mb-4">Page Not Found</h1>
-        <p className="text-muted mb-8 max-w-md mx-auto">
-          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+      <div className="text-center px-6">
+        <p className="text-[80px] font-bold text-border leading-none mb-4">404</p>
+        <h1 className="text-xl font-semibold mb-2">Page not found</h1>
+        <p className="text-[14px] text-muted mb-8">
+          The page you&apos;re looking for doesn&apos;t exist.
         </p>
         <Link
           href="/"
-          className="px-8 py-3 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-indigo-500/25 transition-all"
+          className="px-5 py-2 bg-foreground text-background text-[13px] font-medium rounded-full hover:bg-foreground/90 transition-colors"
         >
-          Go Home
+          Go home
         </Link>
       </div>
     </div>

@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
+const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Kinexapps | Innovative Mobile Apps",
-    template: "%s | Kinexapps",
+    default: "Kinexapps — Mobile App Studio",
+    template: "%s — Kinexapps",
   },
   description:
-    "Kinexapps is an Australian app studio crafting innovative mobile experiences across games, education, and utilities. Explore our portfolio of 7 published iOS apps.",
+    "Australian app studio building games, education tools, and AI-powered utilities for iOS. 7 published apps on the App Store.",
   keywords: [
     "Kinexapps",
     "iOS apps",
@@ -23,13 +28,6 @@ export const metadata: Metadata = {
     "education apps",
     "Australian app developer",
     "App Store",
-    "SnapFix",
-    "Theory Elite",
-    "ABC Kids",
-    "Laser Maze",
-    "Rollscape",
-    "Orb Galaxy Sort",
-    "Color Ball Drop",
   ],
   authors: [{ name: "Kinexapps" }],
   creator: "Kinexapps",
@@ -39,20 +37,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AU",
     siteName: "Kinexapps",
-    title: "Kinexapps | Innovative Mobile Apps",
+    title: "Kinexapps — Mobile App Studio",
     description:
-      "Australian app studio crafting innovative mobile experiences across games, education, and utilities.",
+      "Australian app studio building games, education tools, and AI-powered utilities for iOS.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kinexapps | Innovative Mobile Apps",
-    description:
-      "Australian app studio crafting innovative mobile experiences across games, education, and utilities.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -61,8 +50,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} antialiased`}>
+    <html lang="en" className="dark">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+      >
         <Navbar />
         <main>{children}</main>
         <Footer />

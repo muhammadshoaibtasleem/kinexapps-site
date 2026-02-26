@@ -3,163 +3,94 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description:
-    "Kinexapps Terms of Service — Terms governing the use of our mobile applications.",
+  description: "Kinexapps Terms of Service.",
 };
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a2e] via-[#1a1a4e] to-[#0a0a2e]">
-          <div className="absolute top-1/3 right-1/3 w-[300px] h-[300px] bg-cyan-500/15 rounded-full blur-[80px]" />
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Terms of Service
-          </h1>
-          <p className="text-gray-400 text-lg">
-            Last updated: February 26, 2026
+      <section className="pt-28 pb-20 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-[12px] uppercase tracking-wider text-accent font-medium mb-3">
+            Legal
           </p>
+          <h1 className="text-4xl font-bold tracking-tight mb-2">Terms of Service</h1>
+          <p className="text-[14px] text-muted-strong">Last updated: February 26, 2026</p>
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
-            <div className="p-6 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl">
-              <p className="text-sm text-muted">
-                By downloading or using any application developed by{" "}
-                <strong className="text-foreground">
-                  Kinexapps (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;)
-                </strong>
-                , you agree to be bound by these Terms of Service. If you do not
-                agree to these terms, please do not use our applications.
-              </p>
-            </div>
+        <div className="max-w-3xl mx-auto px-6 space-y-10">
+          <div className="p-5 rounded-xl border border-border bg-card text-[14px] text-muted leading-relaxed">
+            By downloading or using any application developed by{" "}
+            <strong className="text-foreground">Kinexapps</strong>, you agree to
+            be bound by these Terms. If you do not agree, please do not use our applications.
+          </div>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4">1. Use of Our Apps</h2>
-              <p className="text-muted leading-relaxed">
-                Our applications are provided for personal, non-commercial use.
-                You agree to use our apps in accordance with all applicable laws
-                and regulations. You may not:
-              </p>
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-muted">
-                <li>Reverse engineer or decompile our applications</li>
-                <li>Use our apps for any unlawful purpose</li>
-                <li>Attempt to gain unauthorized access to any part of our services</li>
-                <li>Redistribute or sublicense our apps without permission</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">2. In-App Purchases</h2>
-              <p className="text-muted leading-relaxed">
-                Some of our apps offer in-app purchases. All purchases are
-                processed through the Apple App Store and are subject to
-                Apple&apos;s terms and conditions. Refund requests should be
-                directed to Apple.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">3. Advertising</h2>
-              <p className="text-muted leading-relaxed">
-                Many of our apps are free and supported by advertising. By using
-                our free apps, you agree to the display of advertisements. You
-                may remove ads through in-app purchases where this option is
-                available.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                4. Intellectual Property
-              </h2>
-              <p className="text-muted leading-relaxed">
-                All content, design, graphics, and code within our applications
-                are the intellectual property of Kinexapps and are protected by
-                copyright and other intellectual property laws. The Kinexapps
-                name, logo, and all related names, logos, and product names are
-                trademarks of Kinexapps.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                5. Disclaimer of Warranties
-              </h2>
-              <p className="text-muted leading-relaxed">
-                Our apps are provided &quot;as is&quot; and &quot;as
-                available&quot; without any warranties of any kind, either
-                express or implied. We do not guarantee that our apps will be
-                error-free, secure, or continuously available.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                6. Limitation of Liability
-              </h2>
-              <p className="text-muted leading-relaxed">
-                To the maximum extent permitted by law, Kinexapps shall not be
-                liable for any indirect, incidental, special, consequential, or
-                punitive damages resulting from your use of or inability to use
-                our applications.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">7. Changes to Terms</h2>
-              <p className="text-muted leading-relaxed">
-                We reserve the right to modify these Terms of Service at any
-                time. Changes will be effective immediately upon posting.
-                Continued use of our apps after any changes constitutes
-                acceptance of the new terms.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">8. Governing Law</h2>
-              <p className="text-muted leading-relaxed">
-                These Terms shall be governed by and construed in accordance with
-                the laws of Australia, without regard to its conflict of law
-                provisions.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">9. Contact</h2>
-              <p className="text-muted leading-relaxed">
-                For questions about these Terms, please contact us:
-              </p>
-              <div className="mt-4 p-6 bg-card-bg border border-card-border rounded-xl">
-                <p className="font-semibold mb-1">Kinexapps</p>
-                <p className="text-muted">
-                  Email:{" "}
-                  <a
-                    href="mailto:support@kinexapps.com"
-                    className="text-indigo-500 hover:text-indigo-600"
-                  >
-                    support@kinexapps.com
-                  </a>
-                </p>
-                <p className="text-muted">Location: Melbourne, Australia</p>
+          {[
+            {
+              title: "1. Use of Our Apps",
+              content: (
+                <>
+                  <p className="mb-2">Our applications are for personal, non-commercial use. You may not:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Reverse engineer or decompile our applications</li>
+                    <li>Use our apps for any unlawful purpose</li>
+                    <li>Attempt unauthorized access to any part of our services</li>
+                    <li>Redistribute or sublicense without permission</li>
+                  </ul>
+                </>
+              ),
+            },
+            {
+              title: "2. In-App Purchases",
+              content: "All purchases are processed through the Apple App Store and subject to Apple's terms. Refund requests should be directed to Apple.",
+            },
+            {
+              title: "3. Advertising",
+              content: "Many apps are free and ad-supported. By using free apps, you agree to ad display. Ads may be removed through in-app purchases where available.",
+            },
+            {
+              title: "4. Intellectual Property",
+              content: "All content, design, graphics, and code are the intellectual property of Kinexapps, protected by copyright and intellectual property laws.",
+            },
+            {
+              title: "5. Disclaimer of Warranties",
+              content: "Apps are provided \"as is\" without warranties of any kind. We do not guarantee error-free, secure, or continuous availability.",
+            },
+            {
+              title: "6. Limitation of Liability",
+              content: "To the maximum extent permitted by law, Kinexapps shall not be liable for any indirect, incidental, special, or consequential damages.",
+            },
+            {
+              title: "7. Changes to Terms",
+              content: "We may modify these Terms at any time. Continued use constitutes acceptance of new terms.",
+            },
+            {
+              title: "8. Governing Law",
+              content: "These Terms are governed by the laws of Australia.",
+            },
+            {
+              title: "9. Contact",
+              content: (
+                <div className="p-4 rounded-lg border border-border bg-card">
+                  <p className="font-medium text-foreground">Kinexapps</p>
+                  <p>Email: <a href="mailto:support@kinexapps.com" className="text-accent hover:underline">support@kinexapps.com</a></p>
+                  <p>Location: Melbourne, Australia</p>
+                </div>
+              ),
+            },
+          ].map((section) => (
+            <div key={section.title}>
+              <h2 className="text-[17px] font-semibold text-foreground mb-3">{section.title}</h2>
+              <div className="text-[14px] text-muted leading-relaxed">
+                {typeof section.content === "string" ? <p>{section.content}</p> : section.content}
               </div>
-            </section>
-
-            <div className="pt-8 border-t border-card-border">
-              <Link
-                href="/"
-                className="text-indigo-500 hover:text-indigo-600 font-medium transition-colors"
-              >
-                &larr; Back to Home
-              </Link>
             </div>
+          ))}
+
+          <div className="pt-8 border-t border-border">
+            <Link href="/" className="text-[13px] text-accent hover:underline">&larr; Back to home</Link>
           </div>
         </div>
       </section>

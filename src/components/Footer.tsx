@@ -1,122 +1,77 @@
 import Link from "next/link";
 
+const footerLinks = {
+  Apps: [
+    { href: "/apps/snapfix", label: "SnapFix" },
+    { href: "/apps/theory-elite", label: "Theory Elite" },
+    { href: "/apps/abc-kids", label: "ABC Kids" },
+    { href: "/apps/laser-maze", label: "Laser Maze" },
+    { href: "/apps/rollscape", label: "Rollscape" },
+    { href: "/apps/orb-galaxy", label: "Orb Galaxy Sort" },
+    { href: "/apps/color-ball-drop", label: "Color Ball Drop" },
+  ],
+  Company: [
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ],
+  Legal: [
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms of Service" },
+  ],
+};
+
 export default function Footer() {
   return (
-    <footer className="bg-[#0f0f23] text-gray-400 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="border-t border-border">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">K</span>
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-7 h-7 rounded-md bg-accent flex items-center justify-center">
+                <span className="text-white text-xs font-bold">K</span>
               </div>
-              <span className="text-xl font-bold text-white">
-                Kinexapps
-              </span>
+              <span className="text-[14px] font-semibold">Kinexapps</span>
             </div>
-            <p className="text-sm leading-relaxed mb-6">
-              Crafting innovative mobile experiences that educate, entertain, and
-              empower users worldwide. Based in Australia.
+            <p className="text-[13px] text-muted leading-relaxed">
+              Australian app studio crafting mobile experiences.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-white/10 rounded-lg text-sm text-white hover:bg-white/20 transition-colors"
-              >
-                App Store
-              </a>
+          </div>
+
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h4 className="text-[12px] uppercase tracking-wider text-muted-strong font-medium mb-4">
+                {title}
+              </h4>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-[13px] text-muted hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold mb-5">Quick Links</h3>
-            <ul className="space-y-3">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/#apps", label: "Our Apps" },
-                { href: "/about", label: "About Us" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Our Apps */}
-          <div>
-            <h3 className="text-white font-semibold mb-5">Our Apps</h3>
-            <ul className="space-y-3">
-              {[
-                { href: "/apps/snapfix", label: "SnapFix" },
-                { href: "/apps/theory-elite", label: "Theory Elite" },
-                { href: "/apps/abc-kids", label: "ABC Kids" },
-                { href: "/apps/laser-maze", label: "Laser Maze" },
-                { href: "/apps/rollscape", label: "Rollscape" },
-                { href: "/apps/orb-galaxy", label: "Orb Galaxy Sort" },
-                { href: "/apps/color-ball-drop", label: "Color Ball Drop 3D" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white font-semibold mb-5">Legal</h3>
-            <ul className="space-y-3">
-              {[
-                { href: "/privacy", label: "Privacy Policy" },
-                { href: "/terms", label: "Terms of Service" },
-                { href: "/contact", label: "Support" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs">
+        <div className="mt-14 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[12px] text-muted-strong">
             &copy; {new Date().getFullYear()} Kinexapps. All rights reserved.
           </p>
-          <p className="text-xs">
-            Developer:{" "}
-            <a
-              href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-400 hover:text-indigo-300 transition-colors"
-            >
-              Muhammad Talseem
-            </a>
-          </p>
+          <a
+            href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12px] text-muted-strong hover:text-muted transition-colors"
+          >
+            Developer: Muhammad Talseem
+          </a>
         </div>
       </div>
     </footer>

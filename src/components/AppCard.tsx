@@ -3,106 +3,54 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { App } from "@/data/apps";
-import {
-  Smartphone,
-  Tablet,
-  Monitor,
-  Glasses,
-  ExternalLink,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-const platformIcons: Record<string, React.ReactNode> = {
-  iPhone: <Smartphone className="w-3.5 h-3.5" />,
-  iPad: <Tablet className="w-3.5 h-3.5" />,
-  Mac: <Monitor className="w-3.5 h-3.5" />,
-  "Apple Vision": <Glasses className="w-3.5 h-3.5" />,
-};
-
-export default function AppCard({ app, index }: { app: App; index: number }) {
+export default function AppCard({ app }: { app: App }) {
   return (
-    <div
-      className="group relative bg-card-bg border border-card-border rounded-2xl overflow-hidden card-hover opacity-0 animate-fade-in-up"
-      style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
+    <Link
+      href={`/apps/${app.id}`}
+      className="group block"
     >
-      {/* Gradient Header */}
-      <div
-        className={`relative h-44 bg-gradient-to-br ${app.gradient} p-6 flex items-center justify-center`}
-      >
-        {/* Decorative elements */}
-        <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-white/10 blur-xl" />
-        <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full bg-black/10 blur-lg" />
-
-        {/* App Icon */}
-        <div className="relative w-24 h-24 rounded-[22px] overflow-hidden shadow-2xl group-hover:scale-110 transition-transform duration-300 border border-white/30">
-          <Image
-            src={app.icon}
-            alt={`${app.name} icon`}
-            width={96}
-            height={96}
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Category Badge */}
-        <div className="absolute top-4 left-4">
-          <span
-            className={`px-3 py-1 ${app.categoryColor} text-white text-xs font-semibold rounded-full`}
-          >
-            {app.category}
-          </span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-2">
-          <div>
-            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-              {app.name}
-            </h3>
-            <p className="text-sm text-muted">{app.subtitle}</p>
+      <div className="relative p-5 rounded-xl border border-border bg-card hover:bg-card-hover hover:border-border-light transition-all duration-200">
+        <div className="flex items-start gap-4">
+          {/* Icon */}
+          <div className="w-14 h-14 rounded-[14px] overflow-hidden border border-border shrink-0">
+            <Image
+              src={app.icon}
+              alt={app.name}
+              width={56}
+              height={56}
+              className="w-full h-full object-cover"
+            />
           </div>
-          <span className="text-xs font-medium text-muted bg-black/5 dark:bg-white/5 px-2 py-1 rounded-md">
-            {app.price}
-          </span>
+
+          {/* Info */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between mb-0.5">
+              <h3 className="text-[15px] font-semibold text-foreground group-hover:text-accent transition-colors">
+                {app.name}
+              </h3>
+              <ArrowUpRight className="w-4 h-4 text-muted-strong opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <p className="text-[13px] text-muted-strong mb-2">{app.subtitle}</p>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] text-muted px-2 py-0.5 rounded-md bg-white/5 border border-border">
+                {app.category}
+              </span>
+              <span className="text-[11px] text-muted px-2 py-0.5 rounded-md bg-white/5 border border-border">
+                {app.price}
+              </span>
+              <span className="text-[11px] text-muted px-2 py-0.5 rounded-md bg-white/5 border border-border">
+                {app.platforms[0]}
+              </span>
+            </div>
+          </div>
         </div>
 
-        <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-3">
+        <p className="mt-4 text-[13px] leading-relaxed text-muted line-clamp-2">
           {app.description}
         </p>
-
-        {/* Platforms */}
-        <div className="flex items-center gap-2 mb-5 flex-wrap">
-          {app.platforms.map((platform) => (
-            <span
-              key={platform}
-              className="inline-flex items-center gap-1 px-2 py-1 bg-black/5 dark:bg-white/5 rounded-md text-xs text-muted"
-            >
-              {platformIcons[platform]}
-              {platform}
-            </span>
-          ))}
-        </div>
-
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          <Link
-            href={`/apps/${app.id}`}
-            className="flex-1 px-4 py-2.5 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-sm font-semibold rounded-xl text-center hover:shadow-lg hover:shadow-indigo-500/25 transition-all"
-          >
-            Learn More
-          </Link>
-          <a
-            href={app.appStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 border border-card-border rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-            aria-label={`View ${app.name} on App Store`}
-          >
-            <ExternalLink className="w-4 h-4 text-muted" />
-          </a>
-        </div>
       </div>
-    </div>
+    </Link>
   );
 }

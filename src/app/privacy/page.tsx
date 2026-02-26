@@ -3,229 +3,124 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description:
-    "Kinexapps Privacy Policy — Learn how we handle your data across all our apps.",
+  description: "Kinexapps Privacy Policy — How we handle your data.",
 };
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a2e] via-[#1a1a4e] to-[#0a0a2e]">
-          <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-indigo-500/15 rounded-full blur-[80px]" />
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Privacy Policy
-          </h1>
-          <p className="text-gray-400 text-lg">
-            Last updated: February 26, 2026
+      <section className="pt-28 pb-20 border-b border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-[12px] uppercase tracking-wider text-accent font-medium mb-3">
+            Legal
           </p>
+          <h1 className="text-4xl font-bold tracking-tight mb-2">Privacy Policy</h1>
+          <p className="text-[14px] text-muted-strong">Last updated: February 26, 2026</p>
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
-            <div className="p-6 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl">
-              <p className="text-sm text-muted">
-                <strong className="text-foreground">
-                  Kinexapps (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;)
-                </strong>{" "}
-                is committed to protecting the privacy of our users. This
-                Privacy Policy explains how we collect, use, and protect your
-                information when you use our mobile applications.
-              </p>
+        <div className="max-w-3xl mx-auto px-6 space-y-10">
+          <div className="p-5 rounded-xl border border-border bg-card text-[14px] text-muted leading-relaxed">
+            <strong className="text-foreground">Kinexapps (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;)</strong> is
+            committed to protecting the privacy of our users. This Privacy Policy explains
+            how we collect, use, and protect your information when you use our mobile applications.
+          </div>
+
+          {[
+            {
+              title: "1. Information We Collect",
+              content: (
+                <>
+                  <p className="mb-3">The type of information we collect depends on the specific app you use:</p>
+                  <p className="font-medium text-foreground mb-1">Apps That Collect No Data</p>
+                  <p className="mb-3">ABC Kids — Learn &amp; Play does not collect any personal data. It operates entirely offline.</p>
+                  <p className="font-medium text-foreground mb-1">Apps With Advertising</p>
+                  <p className="mb-2">Some apps display advertisements via third-party ad networks which may collect:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Device identifiers (IDFA/IDFV)</li>
+                    <li>General location data (country/region level)</li>
+                    <li>App usage and interaction data</li>
+                    <li>Device type, OS version, and language</li>
+                  </ul>
+                </>
+              ),
+            },
+            {
+              title: "2. How We Use Information",
+              content: (
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong className="text-foreground">Advertising:</strong> To display relevant ads in free apps</li>
+                  <li><strong className="text-foreground">Analytics:</strong> To understand usage and improve experience</li>
+                  <li><strong className="text-foreground">App Functionality:</strong> Features like leaderboards and progress tracking</li>
+                </ul>
+              ),
+            },
+            {
+              title: "3. Third-Party Services",
+              content: (
+                <ul className="list-disc pl-5 space-y-1">
+                  <li><strong className="text-foreground">Google AdMob</strong> — Serving advertisements</li>
+                  <li><strong className="text-foreground">Apple App Analytics</strong> — App performance</li>
+                  <li><strong className="text-foreground">Firebase</strong> — App functionality and analytics</li>
+                </ul>
+              ),
+            },
+            {
+              title: "4. Children's Privacy",
+              content: (
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>We do not knowingly collect personal information from children under 13</li>
+                  <li>Children&apos;s apps minimize or eliminate data collection</li>
+                  <li>We comply with COPPA and applicable children&apos;s privacy laws</li>
+                  <li>Data discovered from a child under 13 will be deleted promptly</li>
+                </ul>
+              ),
+            },
+            {
+              title: "5. Data Security",
+              content: (
+                <p>We implement appropriate security measures to protect information collected through
+                our apps. No method of electronic transmission or storage is 100% secure.</p>
+              ),
+            },
+            {
+              title: "6. Your Rights",
+              content: (
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Request access to personal data we hold</li>
+                  <li>Request deletion of your personal data</li>
+                  <li>Opt out of personalized advertising via device settings</li>
+                  <li>Lodge a complaint with a data protection authority</li>
+                </ul>
+              ),
+            },
+            {
+              title: "7. Changes to This Policy",
+              content: (
+                <p>We may update this Privacy Policy from time to time. Changes will be reflected
+                in the &ldquo;Last Updated&rdquo; date above.</p>
+              ),
+            },
+            {
+              title: "8. Contact Us",
+              content: (
+                <div className="p-4 rounded-lg border border-border bg-card">
+                  <p className="font-medium text-foreground">Kinexapps</p>
+                  <p>Email: <a href="mailto:support@kinexapps.com" className="text-accent hover:underline">support@kinexapps.com</a></p>
+                  <p>Location: Melbourne, Australia</p>
+                </div>
+              ),
+            },
+          ].map((section) => (
+            <div key={section.title}>
+              <h2 className="text-[17px] font-semibold text-foreground mb-3">{section.title}</h2>
+              <div className="text-[14px] text-muted leading-relaxed">{section.content}</div>
             </div>
+          ))}
 
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                1. Information We Collect
-              </h2>
-              <p className="text-muted leading-relaxed mb-4">
-                The type of information we collect depends on the specific app
-                you use:
-              </p>
-
-              <h3 className="text-lg font-semibold mb-2">
-                Apps That Collect No Data
-              </h3>
-              <p className="text-muted leading-relaxed mb-4">
-                <strong>ABC Kids - Learn &amp; Play</strong> does not collect any
-                personal data whatsoever. It is designed for children and
-                operates entirely offline with no data transmission.
-              </p>
-
-              <h3 className="text-lg font-semibold mb-2">
-                Apps With Advertising
-              </h3>
-              <p className="text-muted leading-relaxed">
-                Some of our apps (such as Laser Maze, Rollscape, Orb Galaxy
-                Sort, Color Ball Drop 3D, and SnapFix) display advertisements
-                provided by third-party ad networks. These networks may collect:
-              </p>
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-muted">
-                <li>Device identifiers (IDFA/IDFV)</li>
-                <li>General location data (country/region level)</li>
-                <li>App usage and interaction data</li>
-                <li>Device type, OS version, and language</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                2. How We Use Information
-              </h2>
-              <p className="text-muted leading-relaxed">
-                Where data is collected, it is used for the following purposes:
-              </p>
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-muted">
-                <li>
-                  <strong>Advertising:</strong> To display relevant
-                  advertisements within our free apps
-                </li>
-                <li>
-                  <strong>Analytics:</strong> To understand how our apps are used
-                  and improve user experience
-                </li>
-                <li>
-                  <strong>App Functionality:</strong> To provide features such as
-                  leaderboards and progress tracking (Theory Elite)
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                3. Third-Party Services
-              </h2>
-              <p className="text-muted leading-relaxed">
-                Our apps may use the following third-party services that have
-                their own privacy policies:
-              </p>
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-muted">
-                <li>
-                  <strong>Google AdMob</strong> — For serving advertisements
-                </li>
-                <li>
-                  <strong>Apple App Analytics</strong> — For understanding app
-                  performance
-                </li>
-                <li>
-                  <strong>Firebase</strong> — For app functionality and analytics
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                4. Children&apos;s Privacy
-              </h2>
-              <p className="text-muted leading-relaxed">
-                We take children&apos;s privacy very seriously. Our apps designed
-                for children (ABC Kids - Learn &amp; Play, Color Ball Drop 3D)
-                are built with child safety in mind:
-              </p>
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-muted">
-                <li>
-                  We do not knowingly collect personal information from children
-                  under 13
-                </li>
-                <li>
-                  Our children&apos;s apps minimize or eliminate data collection
-                </li>
-                <li>
-                  We comply with applicable children&apos;s privacy laws
-                  including COPPA
-                </li>
-                <li>
-                  If we discover we have collected data from a child under 13, we
-                  will delete it promptly
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">5. Data Security</h2>
-              <p className="text-muted leading-relaxed">
-                We implement appropriate security measures to protect any
-                information collected through our apps. However, no method of
-                electronic transmission or storage is 100% secure, and we cannot
-                guarantee absolute security.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">6. Your Rights</h2>
-              <p className="text-muted leading-relaxed">You have the right to:</p>
-              <ul className="list-disc pl-6 mt-2 space-y-2 text-muted">
-                <li>
-                  Request access to any personal data we hold about you
-                </li>
-                <li>Request deletion of your personal data</li>
-                <li>
-                  Opt out of personalized advertising (through your device
-                  settings)
-                </li>
-                <li>Lodge a complaint with a data protection authority</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">
-                7. Changes to This Policy
-              </h2>
-              <p className="text-muted leading-relaxed">
-                We may update this Privacy Policy from time to time. We will
-                notify users of any material changes by updating the &quot;Last
-                Updated&quot; date at the top of this page. We encourage you to
-                review this page periodically.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold mb-4">8. Contact Us</h2>
-              <p className="text-muted leading-relaxed">
-                If you have any questions about this Privacy Policy or our data
-                practices, please contact us:
-              </p>
-              <div className="mt-4 p-6 bg-card-bg border border-card-border rounded-xl">
-                <p className="font-semibold mb-1">Kinexapps</p>
-                <p className="text-muted">
-                  Email:{" "}
-                  <a
-                    href="mailto:support@kinexapps.com"
-                    className="text-indigo-500 hover:text-indigo-600"
-                  >
-                    support@kinexapps.com
-                  </a>
-                </p>
-                <p className="text-muted">Location: Melbourne, Australia</p>
-                <p className="text-muted mt-2">
-                  Developer:{" "}
-                  <a
-                    href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-500 hover:text-indigo-600"
-                  >
-                    Muhammad Talseem
-                  </a>
-                </p>
-              </div>
-            </section>
-
-            <div className="pt-8 border-t border-card-border">
-              <Link
-                href="/"
-                className="text-indigo-500 hover:text-indigo-600 font-medium transition-colors"
-              >
-                &larr; Back to Home
-              </Link>
-            </div>
+          <div className="pt-8 border-t border-border">
+            <Link href="/" className="text-[13px] text-accent hover:underline">&larr; Back to home</Link>
           </div>
         </div>
       </section>

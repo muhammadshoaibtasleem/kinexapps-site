@@ -1,90 +1,94 @@
 "use client";
 
-import { Smartphone, Sparkles, ArrowDown } from "lucide-react";
+import Image from "next/image";
+import { apps } from "@/data/apps";
 
 export default function Hero() {
+  const featured = apps.slice(0, 5);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a2e] via-[#1a1a4e] to-[#0a0a2e]">
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[100px] animate-float" style={{ animationDelay: "3s" }} />
-        <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[80px] animate-float" style={{ animationDelay: "1.5s" }} />
-      </div>
+    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+      {/* Background glow */}
+      <div className="glow w-[600px] h-[600px] bg-blue-500/8 top-[-200px] left-1/2 -translate-x-1/2" />
+      <div className="glow w-[400px] h-[400px] bg-indigo-500/6 bottom-[10%] right-[-100px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 animate-fade-in">
-          <Sparkles className="w-4 h-4 text-amber-400" />
-          <span className="text-sm text-gray-300 font-medium">
-            7 Apps Published on the App Store
-          </span>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Eyebrow */}
+          <div className="animate-in inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border text-[12px] text-muted tracking-wide uppercase mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            Australian App Studio
+          </div>
+
+          {/* Headline */}
+          <h1 className="animate-in delay-1 text-[clamp(2.5rem,6vw,4.5rem)] font-bold leading-[1.08] tracking-[-0.035em] text-foreground mb-6">
+            We craft apps
+            <br />
+            <span className="text-muted-strong">people love to use</span>
+          </h1>
+
+          {/* Sub */}
+          <p className="animate-in delay-2 text-[17px] leading-relaxed text-muted max-w-xl mx-auto mb-10">
+            Games that challenge your mind. Tools that help you learn. Utilities
+            powered by AI. Seven apps, free for everyone.
+          </p>
+
+          {/* CTAs */}
+          <div className="animate-in delay-3 flex items-center justify-center gap-3">
+            <a
+              href="#apps"
+              className="px-6 py-2.5 bg-foreground text-background text-[14px] font-medium rounded-full hover:bg-foreground/90 transition-colors"
+            >
+              View our apps
+            </a>
+            <a
+              href="/about"
+              className="px-6 py-2.5 border border-border text-[14px] font-medium rounded-full text-muted hover:text-foreground hover:border-border-light transition-colors"
+            >
+              Learn more
+            </a>
+          </div>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-6 animate-fade-in-up">
-          We Build Apps
-          <br />
-          <span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">
-            People Love
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 leading-relaxed mb-10 animate-fade-in-up delay-200">
-          Kinexapps is an Australian app studio crafting innovative mobile
-          experiences across games, education, and utilities. From brain-teasing
-          puzzles to AI-powered tools — we bring ideas to life.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up delay-300">
-          <a
-            href="#apps"
-            className="group px-8 py-4 bg-gradient-to-r from-indigo-500 to-cyan-500 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-indigo-500/25 transition-all hover:scale-105 flex items-center gap-2"
-          >
-            <Smartphone className="w-5 h-5" />
-            Explore Our Apps
-          </a>
-          <a
-            href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 transition-all hover:border-white/40"
-          >
-            View on App Store
-          </a>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 max-w-xl mx-auto gap-8 animate-fade-in-up delay-400">
-          {[
-            { value: "7", label: "Published Apps" },
-            { value: "3", label: "Categories" },
-            { value: "Free", label: "All Apps" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-1">
-                {stat.value}
+        {/* App icon strip */}
+        <div className="animate-in delay-4 mt-20 flex items-center justify-center gap-4">
+          {featured.map((app, i) => (
+            <a
+              key={app.id}
+              href={`/apps/${app.id}`}
+              className="group relative"
+              style={{ animationDelay: `${0.5 + i * 0.08}s` }}
+            >
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-border bg-card transition-all duration-300 group-hover:border-border-light group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-black/20">
+                <Image
+                  src={app.icon}
+                  alt={app.name}
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="text-sm text-gray-500">{stat.label}</div>
-            </div>
+              <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-[11px] text-muted whitespace-nowrap">{app.name}</span>
+              </div>
+            </a>
           ))}
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-5 h-5 text-gray-500" />
+        {/* Metric bar */}
+        <div className="animate-in delay-5 mt-24 flex items-center justify-center">
+          <div className="flex items-center divide-x divide-border border border-border rounded-full px-2 py-2">
+            {[
+              { val: "7", label: "Apps" },
+              { val: "3", label: "Categories" },
+              { val: "Free", label: "Always" },
+            ].map((m) => (
+              <div key={m.label} className="px-6 text-center">
+                <div className="text-[15px] font-semibold text-foreground">{m.val}</div>
+                <div className="text-[11px] text-muted-strong">{m.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
