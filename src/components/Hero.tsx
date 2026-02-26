@@ -323,7 +323,7 @@ export default function Hero() {
       </div>
 
       {/* ═══ MAIN CONTENT ═══ */}
-      <div className="relative z-20 max-w-6xl mx-auto px-6 pt-32 pb-24">
+      <div className="relative z-20 max-w-6xl mx-auto px-6 pt-16 pb-24">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow */}
           <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border bg-white/70 backdrop-blur-sm text-[13px] text-muted font-medium tracking-wide mb-10 shadow-sm">

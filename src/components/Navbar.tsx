@@ -23,20 +23,18 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-border shadow-sm"
-          : "bg-transparent"
+      className={`sticky top-0 z-50 bg-white border-b border-border transition-shadow duration-300 ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
             src="/kinexapps-logo.png"
             alt="Kinexapps"
-            width={140}
-            height={36}
-            className="h-8 w-auto"
+            width={180}
+            height={44}
+            className="h-10 w-auto"
             priority
           />
         </Link>
@@ -71,7 +69,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-border shadow-lg">
+        <div className="md:hidden bg-white border-b border-border shadow-lg">
           <div className="px-6 py-4 space-y-1">
             {links.map((l) => (
               <Link
