@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   Apps: [
@@ -27,11 +28,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded-md bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center shadow-sm">
-                <span className="text-white text-xs font-bold">K</span>
-              </div>
-              <span className="text-[14px] font-semibold text-foreground">Kinexapps</span>
+            <div className="mb-4">
+              <Image
+                src="/kinexapps-logo.png"
+                alt="Kinexapps"
+                width={120}
+                height={30}
+                className="h-7 w-auto"
+              />
             </div>
             <p className="text-[13px] text-muted leading-relaxed">
               Australian app studio crafting mobile experiences.

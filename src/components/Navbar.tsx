@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -29,13 +30,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center shadow-sm">
-            <span className="text-white text-sm font-bold">K</span>
-          </div>
-          <span className="text-[15px] font-semibold tracking-tight text-foreground">
-            Kinexapps
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/kinexapps-logo.png"
+            alt="Kinexapps"
+            width={140}
+            height={36}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
