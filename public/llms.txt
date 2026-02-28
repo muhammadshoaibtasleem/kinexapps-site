@@ -1,0 +1,80 @@
+# Kinexapps
+> Australian mobile app studio crafting free iOS games, education apps, and AI-powered utilities.
+
+## About
+Kinexapps is an indie app studio based in Melbourne, Australia. We build free, high-quality iOS apps across games, education, and utilities categories. All apps are available on the Apple App Store.
+
+Website: https://kinexapps.com
+Contact: support@kinexapps.com
+App Store: https://apps.apple.com/au/developer/muhammad-talseem/id1871192120
+
+## Apps
+
+### SnapFix — AI Home Repair Help
+- Category: Utilities
+- Platforms: iPhone, iPad
+- Price: Free
+- Features: AI-powered photo diagnosis, step-by-step repair instructions, shopping lists with cost estimates, follow-up AI chat, multi-photo analysis, text-to-speech
+- App Store: https://apps.apple.com/au/app/snapfix-ai-home-repair-help/id6758781226
+- Description: Snap a photo of any home issue and get instant AI-powered repair instructions for plumbing, electrical, drywall, appliance, and structural problems.
+
+### Theory Elite — MBA & Business Quiz Battles
+- Category: Education
+- Platforms: iPhone, iPad
+- Price: Free
+- Features: 6 business subjects, 1v1 quiz battles, timed challenges & flashcards, global leaderboards, 20+ achievement badges, daily missions
+- App Store: https://apps.apple.com/au/app/theory-elite-mba-business/id6759365393
+- Description: Competitive 1v1 quiz battles across six MBA subjects including Marketing, Brand Management, Business Analytics, Operations, Strategic Management, and Finance.
+
+### ABC Kids — Learn & Play
+- Category: Education
+- Platforms: iPhone, iPad
+- Price: Free
+- Features: All 26 letters A-Z with animations, 3D animated letters, matching games, voiceover guidance, kid-friendly interface, no advertisements
+- App Store: https://apps.apple.com/au/app/abc-kids-learn-play/id6758154033
+- Description: Interactive alphabet learning app for toddlers ages 2-5 with stunning 3D animated letters and matching games. Ad-free and safe.
+
+### Laser Maze — Mirror Puzzle
+- Category: Games
+- Platforms: iPhone, iPad
+- Price: Free
+- Features: 117 hand-crafted levels, drag-and-rotate controls, colorful visuals, hints and undo, cosmetic skins, energy reward system
+- App Store: https://apps.apple.com/au/app/laser-maze-mirror-puzzle/id6758780661
+- Description: Guide laser beams through 117 challenging mirror puzzles by placing and rotating mirrors to hit targets. Brain-teasing logic and spatial reasoning game.
+
+### Rollscape — Marble Maze Game
+- Category: Games
+- Platforms: iPhone, iPad, Mac, Apple Vision
+- Price: Free
+- Features: Touch joystick & tilt controls, 2 worlds with 20+ levels, 10 unique balls, 6 power-ups, daily challenges, 60fps with haptic feedback
+- App Store: https://apps.apple.com/au/app/rollscape-marble-maze-game/id6758915053
+- Description: Guide a marble through 3D mazes using touch or tilt controls. Explore Ancient Temple and Space Station worlds with 10 unique ball types.
+
+### Orb Galaxy Sort — Space Ball Sorting Puzzle
+- Category: Games
+- Platforms: iPhone, iPad, Mac, Apple Vision
+- Price: Free
+- Features: 100+ levels, cosmic backgrounds, XP system & rank progression, customizable tube skins, no timers, brain training
+- App Store: https://apps.apple.com/au/app/orb-galaxy-sort/id6758506645
+- Description: Sort colorful orbs into matching tubes across 100+ space-themed levels with breathtaking cosmic backgrounds.
+
+### Color Ball Drop 3D — Color Learning Game
+- Category: Games
+- Platforms: iPhone, iPad, Mac, Apple Vision
+- Price: Free
+- Features: Challenge & free play modes, extra-large tap targets, drag-to-move controls, calm animations, 3D pastel graphics, no reading required
+- App Store: https://apps.apple.com/au/app/color-ball-drop-3d/id6758262767
+- Description: Educational color-learning game for children ages 3-7. Catch falling balls matching the target color in a safe, kid-friendly environment.
+
+### Learn ABC — Learn and Grow
+- Category: Education
+- Platforms: iPhone, iPad, Mac, Apple Vision
+- Price: Free
+- Features: Letters A-Z with jungle animations, numbers/colors/shapes, interactive poems & stories, child-friendly interface, works offline
+- App Store: https://apps.apple.com/au/app/learn-abc-learn-and-grow/id6759160083
+- Description: All-in-one jungle-themed learning app for toddlers ages 2-4 covering letters, numbers, colors, shapes, poems, and stories.
+
+## Categories
+- Games: Laser Maze, Rollscape, Orb Galaxy Sort, Color Ball Drop 3D
+- Education: Theory Elite, ABC Kids, Learn ABC
+- Utilities: SnapFix

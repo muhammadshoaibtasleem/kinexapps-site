@@ -12,6 +12,7 @@ import {
   Glasses,
   Check,
   HelpCircle,
+  Star,
 } from "lucide-react";
 
 const platformIcons: Record<string, React.ReactNode> = {
@@ -48,20 +49,11 @@ export async function generateMetadata({
       description: app.metaDescription,
       url: `https://kinexapps.com/apps/${app.id}`,
       siteName: "Kinexapps",
-      images: [
-        {
-          url: app.icon,
-          width: 512,
-          height: 512,
-          alt: `${app.name} — ${app.subtitle} | iOS App by Kinexapps`,
-        },
-      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: app.metaTitle,
       description: app.metaDescription,
-      images: [app.icon],
     },
   };
 }
@@ -105,10 +97,40 @@ function getAppJsonLd(app: (typeof apps)[number]) {
     featureList: app.features.join(", "),
     contentRating: app.ageRating,
     fileSize: app.size,
-    softwareVersion: "Latest",
-    permissions: "none",
     availableOnDevice: app.platforms.join(", "),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: app.rating.average.toString(),
+      ratingCount: app.rating.count.toString(),
+      bestRating: "5",
+      worstRating: "1",
+    },
   };
+}
+
+function getReviewsJsonLd(app: (typeof apps)[number]) {
+  if (!app.reviews.length) return null;
+  return app.reviews.map((review) => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "SoftwareApplication",
+      name: app.name,
+    },
+    author: {
+      "@type": "Person",
+      name: review.author,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: review.rating.toString(),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    name: review.title,
+    reviewBody: review.body,
+    datePublished: review.date,
+  }));
 }
 
 function getAppBreadcrumbJsonLd(app: (typeof apps)[number]) {
@@ -164,6 +186,7 @@ export default async function AppPage({ params }: PageProps) {
     .slice(0, 3);
 
   const faqJsonLd = getFAQJsonLd(app);
+  const reviewsJsonLd = getReviewsJsonLd(app);
 
   return (
     <div className="min-h-screen">
@@ -183,6 +206,12 @@ export default async function AppPage({ params }: PageProps) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {reviewsJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsJsonLd) }}
         />
       )}
 
@@ -340,9 +369,62 @@ export default async function AppPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* What Users Say */}
+      {app.reviews.length > 0 && (
+        <section className="py-20 bg-surface/50">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-[12px] font-semibold uppercase tracking-wider mb-4">
+              Reviews
+            </div>
+            <div className="flex items-center gap-3 mb-10">
+              <h2 className="text-2xl font-bold tracking-tight">
+                What users say about {app.name}
+              </h2>
+              <div className="flex items-center gap-1.5 text-[14px] text-muted">
+                <div className="flex items-center">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-4 h-4 ${i < Math.round(app.rating.average) ? "fill-amber-400 text-amber-400" : "text-gray-200"}`}
+                    />
+                  ))}
+                </div>
+                <span className="font-semibold text-foreground">{app.rating.average}</span>
+                <span>({app.rating.count} ratings)</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {app.reviews.map((review, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-2xl border border-border bg-white card-lift"
+                >
+                  <div className="flex items-center gap-1 mb-2">
+                    {[...Array(5)].map((_, j) => (
+                      <Star
+                        key={j}
+                        className={`w-3.5 h-3.5 ${j < review.rating ? "fill-amber-400 text-amber-400" : "text-gray-200"}`}
+                      />
+                    ))}
+                  </div>
+                  <h3 className="text-[14px] font-semibold mb-1.5">{review.title}</h3>
+                  <p className="text-[13px] text-muted leading-relaxed mb-3">
+                    {review.body}
+                  </p>
+                  <p className="text-[12px] text-muted-strong">
+                    {review.author} · {new Date(review.date).toLocaleDateString("en-AU", { month: "short", day: "numeric", year: "numeric" })}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section */}
       {app.faqs.length > 0 && (
-        <section className="py-20 bg-surface/50">
+        <section className="py-20">
           <div className="max-w-6xl mx-auto px-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-accent text-[12px] font-semibold uppercase tracking-wider mb-4">
               FAQ
@@ -376,7 +458,7 @@ export default async function AppPage({ params }: PageProps) {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="py-20">
+        <section className="py-20 bg-surface/50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-2xl font-bold tracking-tight mb-10">
               More {app.category} apps by Kinexapps
@@ -413,7 +495,7 @@ export default async function AppPage({ params }: PageProps) {
       )}
 
       {/* Download CTA */}
-      <section className="py-16 bg-surface/50">
+      <section className="py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold tracking-tight mb-4">
             Download {app.name} for Free

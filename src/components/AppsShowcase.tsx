@@ -85,7 +85,7 @@ function FeaturedCard({ app }: { app: App }) {
 
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-16 h-16 rounded-[16px] overflow-hidden border-2 border-white/20 shadow-lg shrink-0">
-                    <Image src={app.icon} alt={app.name} width={64} height={64} className="w-full h-full object-cover" />
+                    <Image src={app.icon} alt={`${app.name} — ${app.subtitle} iOS app icon`} width={64} height={64} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -178,7 +178,7 @@ function BentoCard({ app, size = "normal" }: { app: App; size?: "normal" | "wide
               <div className={`flex items-start gap-4 ${isWide ? "" : "mb-5"}`}>
                 <div className="relative">
                   <div className="w-14 h-14 rounded-[14px] overflow-hidden border border-border/60 shadow-md group-hover:shadow-lg transition-shadow shrink-0">
-                    <Image src={app.icon} alt={app.name} width={56} height={56} className="w-full h-full object-cover" />
+                    <Image src={app.icon} alt={`${app.name} — ${app.subtitle} iOS app icon`} width={56} height={56} className="w-full h-full object-cover" />
                   </div>
                   {/* Tiny platform indicator */}
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border border-border shadow-sm flex items-center justify-center">

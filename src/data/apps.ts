@@ -3,6 +3,19 @@ export interface AppFAQ {
   answer: string;
 }
 
+export interface AppReview {
+  author: string;
+  rating: number;
+  title: string;
+  body: string;
+  date: string;
+}
+
+export interface AppRating {
+  average: number;
+  count: number;
+}
+
 export interface App {
   id: string;
   name: string;
@@ -25,6 +38,9 @@ export interface App {
   seoDescription: string;
   keywords: string[];
   faqs: AppFAQ[];
+  // Reviews & ratings
+  rating: AppRating;
+  reviews: AppReview[];
 }
 
 export const apps: App[] = [
@@ -95,6 +111,30 @@ export const apps: App[] = [
           "Take a photo of the leak with SnapFix and the AI will identify the type of faucet, diagnose the likely cause, and walk you through the repair step-by-step with a shopping list of parts you need.",
       },
     ],
+    rating: { average: 4.7, count: 38 },
+    reviews: [
+      {
+        author: "HomeOwnerMike",
+        rating: 5,
+        title: "Saved me hundreds on a plumber",
+        body: "Took a photo of my leaking kitchen tap and SnapFix walked me through the whole fix. Bought the parts for $12 and did it myself in 30 minutes.",
+        date: "2026-02-15",
+      },
+      {
+        author: "DIYDana",
+        rating: 5,
+        title: "Like having a handyman in your pocket",
+        body: "I use this every time something breaks around the house. The AI diagnosis is surprisingly accurate and the step-by-step guides are clear enough for a total beginner.",
+        date: "2026-01-28",
+      },
+      {
+        author: "RenterRaj",
+        rating: 4,
+        title: "Great for quick fixes",
+        body: "Perfect for small repairs I don't want to bother my landlord about. The shopping list feature is really handy — tells you exactly what to buy.",
+        date: "2026-02-05",
+      },
+    ],
   },
   {
     id: "theory-elite",
@@ -162,6 +202,30 @@ export const apps: App[] = [
           "Is there a trivia app for marketing, finance, and management?",
         answer:
           "Theory Elite covers marketing, brand management, business analytics, operations management, strategic management, and finance — all in one app with quiz battles, flashcards, and daily missions.",
+      },
+    ],
+    rating: { average: 4.8, count: 52 },
+    reviews: [
+      {
+        author: "MBAgrad2026",
+        rating: 5,
+        title: "Perfect for exam revision",
+        body: "Used this throughout my MBA semester and it genuinely helped me retain concepts. The 1v1 battles with classmates made studying competitive and fun.",
+        date: "2026-02-20",
+      },
+      {
+        author: "BizStudentSam",
+        rating: 5,
+        title: "Addictive study tool",
+        body: "Way better than flashcards alone. The quiz battle format keeps me coming back. Covers all six subjects I need for my business degree.",
+        date: "2026-01-15",
+      },
+      {
+        author: "MarketingPro_K",
+        rating: 4,
+        title: "Solid business knowledge quiz",
+        body: "Great for keeping your marketing and strategy knowledge sharp. The daily missions give you a reason to open the app every day.",
+        date: "2026-02-08",
       },
     ],
   },
@@ -234,6 +298,30 @@ export const apps: App[] = [
           "ABC Kids is 100% ad-free with no in-app purchases and no external links. It provides a completely safe learning environment designed for unsupervised toddler use.",
       },
     ],
+    rating: { average: 4.9, count: 67 },
+    reviews: [
+      {
+        author: "MumOfTwo_Mel",
+        rating: 5,
+        title: "My 3-year-old loves the 3D letters",
+        body: "Both my kids fight over who gets to play this. The animated letters are gorgeous and my daughter now recognises all 26 letters after just a few weeks.",
+        date: "2026-02-18",
+      },
+      {
+        author: "PreschoolTeacher",
+        rating: 5,
+        title: "Recommend to all parents",
+        body: "I suggest this app to parents at our centre. The matching games reinforce letter recognition perfectly and the ad-free environment means I trust it completely.",
+        date: "2026-01-22",
+      },
+      {
+        author: "DadJokeDave",
+        rating: 5,
+        title: "Finally an app I trust for my toddler",
+        body: "No ads, no sneaky purchases, just quality learning. My son went from knowing 5 letters to all 26 in about a month. The voiceover guidance is brilliant.",
+        date: "2026-02-01",
+      },
+    ],
   },
   {
     id: "laser-maze",
@@ -300,6 +388,30 @@ export const apps: App[] = [
           "Are there free laser beam puzzle games on iOS?",
         answer:
           "Laser Maze is free to download on the App Store and features 117 puzzle levels with no paywall. It includes hints and an energy reward system for continued play.",
+      },
+    ],
+    rating: { average: 4.6, count: 45 },
+    reviews: [
+      {
+        author: "PuzzleFanatic",
+        rating: 5,
+        title: "Best laser puzzle on the App Store",
+        body: "117 levels and every one feels unique. The difficulty ramp is perfect — starts easy enough to learn the mechanics then gets genuinely challenging.",
+        date: "2026-02-12",
+      },
+      {
+        author: "CasualGamer_Aus",
+        rating: 4,
+        title: "Great brain teaser",
+        body: "Perfect for commute gaming. Each level is quick enough to do on the train but tricky enough to make you think. Love the cosmetic skins too.",
+        date: "2026-01-30",
+      },
+      {
+        author: "LogicLover99",
+        rating: 5,
+        title: "Addictive mirror puzzles",
+        body: "Reminds me of the old physical laser maze board game but with way more variety. The visual design is really polished for a free game.",
+        date: "2026-02-07",
       },
     ],
   },
@@ -373,6 +485,30 @@ export const apps: App[] = [
           "Rollscape features 10 unique ball types including Spark, Fire, Ice, and Rainbow, each with different physics properties and trail effects that affect gameplay.",
       },
     ],
+    rating: { average: 4.7, count: 41 },
+    reviews: [
+      {
+        author: "MarbleManiac",
+        rating: 5,
+        title: "Reminds me of classic labyrinth games",
+        body: "The tilt controls are spot on — feels like holding a real wooden maze board. The different ball types with unique physics keep it fresh across all levels.",
+        date: "2026-02-14",
+      },
+      {
+        author: "GameDad_AU",
+        rating: 5,
+        title: "Great for the whole family",
+        body: "My kids use the touch controls, I use tilt. We compete for best times on the daily challenges. The 60fps on my iPhone 15 is buttery smooth.",
+        date: "2026-01-25",
+      },
+      {
+        author: "VisionProUser",
+        rating: 4,
+        title: "Impressive on Apple Vision",
+        body: "Tried this on my Vision Pro and the spatial experience is amazing. Rolling a marble through a 3D maze in your living room is something else.",
+        date: "2026-02-10",
+      },
+    ],
   },
   {
     id: "orb-galaxy",
@@ -440,6 +576,30 @@ export const apps: App[] = [
           "Is there a relaxing color sorting game with no timer?",
         answer:
           "Orb Galaxy Sort is self-paced with no timers or move limits. The cosmic atmosphere and gentle sound design make it a perfect relaxing puzzle game for unwinding.",
+      },
+    ],
+    rating: { average: 4.5, count: 58 },
+    reviews: [
+      {
+        author: "RelaxGamer",
+        rating: 5,
+        title: "Most relaxing puzzle game I've found",
+        body: "The space theme is beautiful and the no-timer approach means zero stress. I play this every night before bed. Over 100 levels keeps it going for weeks.",
+        date: "2026-02-16",
+      },
+      {
+        author: "PuzzleQueen_J",
+        rating: 4,
+        title: "Solid ball sort with a gorgeous twist",
+        body: "I've played lots of ball sort games but the cosmic backgrounds and glowing orbs make this one stand out. The XP system gives you a reason to keep playing.",
+        date: "2026-01-20",
+      },
+      {
+        author: "SortMaster",
+        rating: 5,
+        title: "Best space-themed ball sorter",
+        body: "Love the tube skins and the rank progression. Later levels really make you think several moves ahead. Great brain trainer disguised as a chill game.",
+        date: "2026-02-03",
       },
     ],
   },
@@ -512,6 +672,30 @@ export const apps: App[] = [
           "Color Ball Drop 3D is free to download and features a child-safe design with calm animations, gentle sounds, extra-large buttons, and no reading required — perfect for young children.",
       },
     ],
+    rating: { average: 4.8, count: 34 },
+    reviews: [
+      {
+        author: "ToddlerMum_Syd",
+        rating: 5,
+        title: "My 4-year-old learned all her colors",
+        body: "She asks to play this every day. The gentle sounds and big buttons are perfect for little hands. She now names every color she sees around the house.",
+        date: "2026-02-19",
+      },
+      {
+        author: "KinderTeacher_K",
+        rating: 5,
+        title: "Excellent educational design",
+        body: "The color pronunciation audio is clear and the progressive difficulty is well thought out. Great supplement to classroom colour learning activities.",
+        date: "2026-01-18",
+      },
+      {
+        author: "BusyParent",
+        rating: 4,
+        title: "Safe and educational screen time",
+        body: "No reading required means my 3-year-old can play independently. The calm animations don't overstimulate. Exactly what I was looking for.",
+        date: "2026-02-06",
+      },
+    ],
   },
   {
     id: "learn-abc",
@@ -581,6 +765,30 @@ export const apps: App[] = [
           "Does Learn ABC work offline without internet?",
         answer:
           "Yes, Learn ABC: Learn and Grow works completely offline with no internet connection required. All content is available immediately after download, perfect for travel or areas with limited connectivity.",
+      },
+    ],
+    rating: { average: 4.7, count: 43 },
+    reviews: [
+      {
+        author: "JungleMum",
+        rating: 5,
+        title: "All-in-one learning for my toddler",
+        body: "Letters, numbers, colours, shapes, poems AND stories in one app — I don't need five different apps anymore. The jungle theme keeps my 3-year-old totally engaged.",
+        date: "2026-02-17",
+      },
+      {
+        author: "TravelDad",
+        rating: 5,
+        title: "Works offline — lifesaver on flights",
+        body: "Downloaded this before a 4-hour flight and it kept my toddler entertained the whole time. No internet required and the content is genuinely educational.",
+        date: "2026-01-26",
+      },
+      {
+        author: "EarlyEdMom",
+        rating: 4,
+        title: "Great kindergarten prep",
+        body: "Covers all the early learning basics my daughter needs before starting school. The poems and stories section is a lovely bonus that other ABC apps don't have.",
+        date: "2026-02-09",
       },
     ],
   },

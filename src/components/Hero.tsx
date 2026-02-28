@@ -332,12 +332,12 @@ export default function Hero() {
             <span className="ml-1 text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent font-semibold">iOS</span>
           </div>
 
-          {/* Main headline */}
-          <h1 className="hero-reveal hero-delay-1 text-[clamp(2.8rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-foreground mb-8">
+          {/* Visual headline — server-rendered <h1> lives in page.tsx for SEO */}
+          <div aria-hidden="true" className="hero-reveal hero-delay-1 text-[clamp(2.8rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-foreground mb-8">
             We craft apps
             <br />
             <span className="shimmer-text">people love to use</span>
-          </h1>
+          </div>
 
           {/* Subtitle */}
           <p className="hero-reveal hero-delay-2 text-lg sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto mb-12">
@@ -374,7 +374,7 @@ export default function Hero() {
                   animationDelay: `${i * 0.4}s`,
                 }}
               >
-                <Image src={app.icon} alt={app.name} width={88} height={88} className="w-full h-full object-cover" priority={i < 3} />
+                <Image src={app.icon} alt={`${app.name} — ${app.subtitle} iOS app icon`} width={88} height={88} className="w-full h-full object-cover" priority={i < 3} />
               </div>
               <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:-translate-y-1">
                 <span className="text-[12px] font-medium text-muted whitespace-nowrap px-2.5 py-1 rounded-full bg-white border border-border shadow-sm">

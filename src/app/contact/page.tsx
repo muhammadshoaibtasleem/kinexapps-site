@@ -68,8 +68,10 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-[14px] font-semibold mb-1">Location</h3>
-                  <p className="text-[14px] text-muted">Melbourne, Australia</p>
-                  <p className="text-[12px] text-muted-strong mt-1">Serving users globally via the App Store.</p>
+                  <address className="not-italic">
+                    <p className="text-[14px] text-muted">Melbourne, Australia</p>
+                    <p className="text-[12px] text-muted-strong mt-1">Serving users globally via the App Store.</p>
+                  </address>
                 </div>
               </div>
 

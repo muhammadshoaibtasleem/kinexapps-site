@@ -12,6 +12,12 @@ const footerLinks = {
     { href: "/apps/color-ball-drop", label: "Color Ball Drop" },
     { href: "/apps/learn-abc", label: "Learn ABC" },
   ],
+  Categories: [
+    { href: "/games", label: "Games" },
+    { href: "/education", label: "Education" },
+    { href: "/utilities", label: "Utilities" },
+    { href: "/blog", label: "Blog" },
+  ],
   Company: [
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -26,21 +32,27 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface/30">
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4">
               <Image
                 src="/kinexapps-logo.png"
-                alt="Kinexapps"
+                alt="Kinexapps — Australian mobile app studio"
                 width={120}
                 height={30}
                 className="h-7 w-auto"
               />
             </div>
-            <p className="text-[13px] text-muted leading-relaxed">
+            <address className="text-[13px] text-muted leading-relaxed not-italic">
               Australian app studio crafting mobile experiences.
-            </p>
+              <br />
+              Melbourne, Australia
+              <br />
+              <a href="mailto:support@kinexapps.com" className="hover:text-foreground transition-colors">
+                support@kinexapps.com
+              </a>
+            </address>
           </div>
 
           {/* Link columns */}

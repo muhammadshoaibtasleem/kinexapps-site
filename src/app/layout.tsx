@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -71,22 +72,12 @@ export const metadata: Metadata = {
       "Kinexapps — Free iOS Games, Education & AI Apps | Australian Studio",
     description:
       "Download 8 free iOS apps — games, education tools, and AI utilities. Built with Swift & SwiftUI by an Australian indie studio.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Kinexapps — Australian Mobile App Studio | 8 Free iOS Apps",
-        type: "image/png",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Kinexapps — Free iOS Games, Education & AI Apps",
     description:
       "8 free iOS apps — puzzle games, kids learning apps, MBA quiz battles, and AI home repair. Built in Australia.",
-    images: ["/og-image.png"],
     creator: "@kinexapps",
   },
   robots: {
@@ -113,9 +104,10 @@ export default function RootLayout({
     <html lang="en-AU">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#0f172a" />
         <meta name="geo.region" content="AU-VIC" />
         <meta name="geo.placename" content="Melbourne" />
+        <link rel="alternate" hrefLang="en-AU" href="https://kinexapps.com" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
@@ -123,6 +115,16 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-8D0M90MELY"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-8D0M90MELY');`}
+        </Script>
       </body>
     </html>
   );

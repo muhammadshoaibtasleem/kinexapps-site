@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "/#apps", label: "Apps" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -27,11 +28,11 @@ export default function Navbar() {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+      <nav aria-label="Main navigation" className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
             src="/kinexapps-logo.png"
-            alt="Kinexapps"
+            alt="Kinexapps — Australian mobile app studio"
             width={180}
             height={44}
             className="h-10 w-auto"
@@ -62,14 +63,16 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-muted hover:text-foreground rounded-lg hover:bg-surface transition-colors"
-          aria-label="Menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden bg-white border-b border-border shadow-lg">
+        <div id="mobile-menu" className="md:hidden bg-white border-b border-border shadow-lg">
           <div className="px-6 py-4 space-y-1">
             {links.map((l) => (
               <Link

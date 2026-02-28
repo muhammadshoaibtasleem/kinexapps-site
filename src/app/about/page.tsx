@@ -36,7 +36,7 @@ const timeline = [
   { year: "2024", event: "Kinexapps founded in Melbourne, Australia" },
   { year: "2024", event: "First apps published on the App Store" },
   { year: "2025", event: "Launched SnapFix — AI-powered home repair" },
-  { year: "2025", event: "Portfolio grew to 8 published apps" },
+  { year: "2025", event: "Portfolio grew to 7 published apps" },
   { year: "2026", event: "Launched Learn ABC and reached 8 published apps" },
 ];
 

@@ -57,14 +57,6 @@ const websiteJsonLd = {
     name: "Kinexapps",
     url: "https://kinexapps.com",
   },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://kinexapps.com/#apps?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const breadcrumbJsonLd = {
@@ -135,6 +127,15 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
+      {/* Server-rendered heading for SEO — visually hidden, Hero renders the visible version */}
+      <div className="sr-only">
+        <h1>We craft apps people love to use — Kinexapps Australian App Studio</h1>
+        <p>
+          Games that challenge your mind. Tools that help you learn. Utilities
+          powered by AI. {apps.length} free iOS apps across games, education,
+          and AI utilities. Built with Swift and SwiftUI in Melbourne, Australia.
+        </p>
+      </div>
       <Hero />
       <AppsShowcase />
       <Features />
