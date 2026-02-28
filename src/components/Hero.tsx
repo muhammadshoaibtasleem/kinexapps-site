@@ -247,7 +247,7 @@ const techBadges = [
    HERO
    ═══════════════════════════════════════ */
 export default function Hero() {
-  const featured = apps.slice(0, 5);
+  const featured = apps;
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleMove = useCallback((e: MouseEvent) => {
@@ -342,7 +342,7 @@ export default function Hero() {
           {/* Subtitle */}
           <p className="hero-reveal hero-delay-2 text-lg sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto mb-12">
             Games that challenge your mind. Tools that help you learn.
-            Utilities powered by AI. Seven apps, free for everyone.
+            Utilities powered by AI. {apps.length} apps, free for everyone.
           </p>
 
           {/* CTA buttons */}
@@ -389,7 +389,7 @@ export default function Hero() {
         <div className="hero-reveal hero-delay-5 mt-28 flex items-center justify-center">
           <div className="flex items-center divide-x divide-border border border-border rounded-2xl bg-white/70 backdrop-blur-sm px-2 py-5 shadow-sm">
             {[
-              { val: "7", label: "Apps Published", suffix: "" },
+              { val: String(apps.length), label: "Apps Published", suffix: "" },
               { val: "3", label: "Categories", suffix: "" },
               { val: "Free", label: "Always", suffix: "" },
             ].map((m) => (

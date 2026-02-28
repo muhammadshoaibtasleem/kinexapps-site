@@ -15,6 +15,7 @@ function FloatingIcons() {
     { top: "55%", left: "2%", delay: 1.8, size: 32 },
     { top: "45%", right: "3%", delay: 3, size: 38 },
     { bottom: "45%", left: "12%", delay: 0.4, size: 34 },
+    { top: "35%", right: "10%", delay: 2, size: 36 },
   ];
 
   return (
@@ -161,7 +162,7 @@ export default function CTA() {
           <div className="shrink-0 flex flex-col items-center gap-8">
             {/* Stats */}
             <div className="flex items-center gap-6 sm:gap-10">
-              <AnimatedStat value="7" label="Apps" />
+              <AnimatedStat value={String(apps.length)} label="Apps" />
               <div className="w-px h-8 bg-white/10" />
               <AnimatedStat value="3" label="Categories" />
               <div className="w-px h-8 bg-white/10" />
