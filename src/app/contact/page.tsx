@@ -2,16 +2,23 @@ import type { Metadata } from "next";
 import { Mail, MapPin, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Support & Inquiries",
+  title: "Contact Kinexapps — App Support & Business Inquiries",
   description:
-    "Get in touch with Kinexapps for app support, feedback, partnership inquiries, or bug reports. We'd love to hear from you.",
+    "Get in touch with Kinexapps for iOS app support, feedback, partnership inquiries, or bug reports. Based in Melbourne, Australia. We typically respond within 24-48 hours.",
+  keywords: [
+    "Kinexapps contact",
+    "app support",
+    "Kinexapps email",
+    "iOS app developer contact",
+    "Melbourne app studio",
+  ],
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Kinexapps — Support & Inquiries",
+    title: "Contact Kinexapps — App Support & Business Inquiries",
     description:
-      "Reach out for app support, feedback, or business inquiries.",
+      "Reach out for iOS app support, feedback, or business inquiries. Melbourne-based studio.",
     url: "https://kinexapps.com/contact",
   },
 };
@@ -80,7 +87,7 @@ export default function ContactPage() {
                   >
                     View developer page
                   </a>
-                  <p className="text-[12px] text-muted-strong mt-1">All 7 apps on the Apple App Store.</p>
+                  <p className="text-[12px] text-muted-strong mt-1">All 8 apps on the Apple App Store.</p>
                 </div>
               </div>
             </div>

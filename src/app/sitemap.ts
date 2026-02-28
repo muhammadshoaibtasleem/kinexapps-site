@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const appPages = apps.map((app) => ({
     url: `${baseUrl}/apps/${app.id}`,
     lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
   }));
 
   return [
@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    ...appPages,
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
@@ -34,14 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.4,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.4,
     },
-    ...appPages,
   ];
 }

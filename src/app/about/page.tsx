@@ -2,16 +2,25 @@ import type { Metadata } from "next";
 import { Target, Eye } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us — Our Mission & Story",
+  title: "About Kinexapps — Australian iOS App Studio | Melbourne",
   description:
-    "Kinexapps is an Australian mobile app studio dedicated to building free, innovative iOS apps. Learn about our mission, values, and the team behind 7 published apps on the App Store.",
+    "Kinexapps is a Melbourne-based Australian mobile app studio building free iOS games, education apps, and AI utilities. Learn about our mission, values, and the team behind 8 published apps on the App Store.",
+  keywords: [
+    "Kinexapps about",
+    "Australian app developer",
+    "Melbourne app studio",
+    "iOS app developer Australia",
+    "indie app developer",
+    "free iOS apps developer",
+    "mobile game studio Melbourne",
+  ],
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Kinexapps — Australian Mobile App Studio",
+    title: "About Kinexapps — Australian iOS App Studio in Melbourne",
     description:
-      "Learn about our mission to build free, high-quality iOS apps for everyone.",
+      "Learn about our mission to build free, high-quality iOS apps for everyone. 8 published apps across games, education, and AI.",
     url: "https://kinexapps.com/about",
   },
 };
@@ -27,8 +36,8 @@ const timeline = [
   { year: "2024", event: "Kinexapps founded in Melbourne, Australia" },
   { year: "2024", event: "First apps published on the App Store" },
   { year: "2025", event: "Launched SnapFix — AI-powered home repair" },
-  { year: "2025", event: "Portfolio grew to 7 published apps" },
-  { year: "2026", event: "Continuing to ship across new categories" },
+  { year: "2025", event: "Portfolio grew to 8 published apps" },
+  { year: "2026", event: "Launched Learn ABC and reached 8 published apps" },
 ];
 
 export default function AboutPage() {
@@ -135,7 +144,7 @@ export default function AboutPage() {
           <div className="flex items-center justify-center">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl">
               {[
-                { val: "7", label: "Published Apps" },
+                { val: "8", label: "Published Apps" },
                 { val: "3", label: "Categories" },
                 { val: "100%", label: "Free" },
                 { val: "6+", label: "Platforms" },

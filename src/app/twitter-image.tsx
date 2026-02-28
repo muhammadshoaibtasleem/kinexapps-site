@@ -66,7 +66,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          7 Free iOS Apps &bull; Games &bull; Education &bull; AI
+          8 Free iOS Apps &bull; Games &bull; Education &bull; AI
         </div>
       </div>
     ),

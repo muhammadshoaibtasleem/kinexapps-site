@@ -373,8 +373,8 @@ export default function AppsShowcase() {
               Our apps
             </h2>
             <p className="text-[16px] text-muted leading-relaxed">
-              Seven apps across games, education, and utilities.
-              All free, all crafted with care.
+              {apps.length} free iOS apps across games, education, and utilities.
+              All crafted with care in Australia.
             </p>
           </div>
 

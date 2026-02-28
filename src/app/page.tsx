@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import AppsShowcase from "@/components/AppsShowcase";
 import Features from "@/components/Features";
 import CTA from "@/components/CTA";
+import { apps } from "@/data/apps";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -10,7 +11,7 @@ const organizationJsonLd = {
   url: "https://kinexapps.com",
   logo: "https://kinexapps.com/kinexapps-logo.png",
   description:
-    "Australian mobile app studio crafting free iOS games, education tools, and AI-powered utilities.",
+    "Australian mobile app studio crafting free iOS games, education tools, and AI-powered utilities for iPhone, iPad, Mac, and Apple Vision.",
   foundingDate: "2024",
   sameAs: [
     "https://apps.apple.com/au/developer/muhammad-talseem/id1871192120",
@@ -18,10 +19,14 @@ const organizationJsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer support",
+    email: "support@kinexapps.com",
     url: "https://kinexapps.com/contact",
+    availableLanguage: "English",
   },
   address: {
     "@type": "PostalAddress",
+    addressLocality: "Melbourne",
+    addressRegion: "VIC",
     addressCountry: "AU",
   },
   numberOfEmployees: {
@@ -35,6 +40,8 @@ const organizationJsonLd = {
     "Artificial Intelligence",
     "Swift",
     "SwiftUI",
+    "SpriteKit",
+    "CoreML",
   ],
 };
 
@@ -44,11 +51,19 @@ const websiteJsonLd = {
   name: "Kinexapps",
   url: "https://kinexapps.com",
   description:
-    "Official website of Kinexapps — Australian mobile app studio with 7 free iOS apps.",
+    "Official website of Kinexapps — Australian mobile app studio with 8 free iOS apps across games, education, and AI utilities.",
   publisher: {
     "@type": "Organization",
     name: "Kinexapps",
     url: "https://kinexapps.com",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://kinexapps.com/#apps?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 
@@ -65,12 +80,46 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Kinexapps iOS Apps",
+  description:
+    "Complete collection of free iOS apps by Kinexapps — games, education, and AI utilities.",
+  numberOfItems: apps.length,
+  itemListElement: apps.map((app, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: app.name,
+    url: `https://kinexapps.com/apps/${app.id}`,
+    item: {
+      "@type": "SoftwareApplication",
+      name: app.name,
+      description: app.description,
+      applicationCategory:
+        app.category === "Games"
+          ? "GameApplication"
+          : app.category === "Education"
+            ? "EducationalApplication"
+            : "UtilitiesApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "AUD",
+      },
+    },
+  })),
+};
+
 export default function Home() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationJsonLd),
+        }}
       />
       <script
         type="application/ld+json"
@@ -78,7 +127,13 @@ export default function Home() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <Hero />
       <AppsShowcase />

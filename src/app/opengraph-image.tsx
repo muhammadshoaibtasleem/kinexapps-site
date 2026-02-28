@@ -84,7 +84,7 @@ export default async function Image() {
           }}
         >
           {[
-            { value: "7", label: "Apps" },
+            { value: "8", label: "Apps" },
             { value: "3", label: "Categories" },
             { value: "Free", label: "Always" },
           ].map((stat) => (

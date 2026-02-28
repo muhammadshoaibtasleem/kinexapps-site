@@ -329,7 +329,7 @@ const features = [
   {
     title: "Education Tools",
     desc: "From ABCs for toddlers to MBA quiz battles for university students.",
-    stat: "2",
+    stat: "3",
     statLabel: "Learning apps",
     visual: <EducationVisual />,
     span: "lg:col-span-2",
