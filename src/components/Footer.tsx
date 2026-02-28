@@ -10,6 +10,7 @@ const footerLinks = {
     { href: "/apps/rollscape", label: "Rollscape" },
     { href: "/apps/orb-galaxy", label: "Orb Galaxy Sort" },
     { href: "/apps/color-ball-drop", label: "Color Ball Drop" },
+    { href: "/apps/learn-abc", label: "Learn ABC" },
   ],
   Company: [
     { href: "/about", label: "About" },

@@ -199,6 +199,32 @@ export const apps: App[] = [
     ageRating: "4+",
     size: "25.8 MB",
   },
+  {
+    id: "learn-abc",
+    name: "Learn ABC",
+    subtitle: "Learn and Grow",
+    category: "Education",
+    categoryColor: "bg-teal-500",
+    description:
+      "ABC Jungle is a fun, colorful learning app designed for toddlers and preschoolers ages 2-4. Explore a vibrant jungle world while learning letters, numbers, colors, shapes, poems, and stories in a safe, engaging environment.",
+    features: [
+      "Letters A-Z with jungle animations",
+      "Numbers, colors & shapes learning",
+      "Interactive poems & stories",
+      "Simple child-friendly interface",
+      "Background music with volume control",
+      "Works offline — no internet needed",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/au/app/learn-abc-learn-and-grow/id6759160083",
+    appStoreId: "6759160083",
+    icon: "/icons/learn-abc.png",
+    gradient: "from-teal-400 to-green-600",
+    platforms: ["iPhone", "iPad", "Mac", "Apple Vision"],
+    price: "Free",
+    ageRating: "4+",
+    size: "136.4 MB",
+  },
 ];
 
 export const categories = [
