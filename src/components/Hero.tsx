@@ -263,7 +263,7 @@ export default function Hero() {
   }, [handleMove]);
 
   return (
-    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* ── Layer 1: Gradient mesh ── */}
       <div className="absolute inset-0 gradient-mesh" />
 
@@ -323,24 +323,24 @@ export default function Hero() {
       </div>
 
       {/* ═══ MAIN CONTENT ═══ */}
-      <div className="relative z-20 max-w-6xl mx-auto px-6 pt-16 pb-24">
+      <div className="relative z-20 max-w-6xl mx-auto px-6 pt-10 pb-14">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow */}
-          <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border bg-white/70 backdrop-blur-sm text-[13px] text-muted font-medium tracking-wide mb-10 shadow-sm">
+          <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border bg-white/70 backdrop-blur-sm text-[13px] text-muted font-medium tracking-wide mb-6 shadow-sm">
             <span className="relative w-2 h-2 rounded-full bg-emerald-500 pulse-ring" />
             Australian App Studio
             <span className="ml-1 text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent font-semibold">iOS</span>
           </div>
 
           {/* Visual headline — server-rendered <h1> lives in page.tsx for SEO */}
-          <div aria-hidden="true" className="hero-reveal hero-delay-1 text-[clamp(2.8rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-foreground mb-8">
+          <div aria-hidden="true" className="hero-reveal hero-delay-1 text-[clamp(2.8rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-foreground mb-5">
             We craft apps
             <br />
             <span className="shimmer-text">people love to use</span>
           </div>
 
           {/* Subtitle */}
-          <p className="hero-reveal hero-delay-2 text-lg sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto mb-12">
+          <p className="hero-reveal hero-delay-2 text-lg sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto mb-8">
             Games that challenge your mind. Tools that help you learn.
             Utilities powered by AI. {apps.length} apps, free for everyone.
           </p>
@@ -364,7 +364,7 @@ export default function Hero() {
         </div>
 
         {/* ── Floating app icons ── */}
-        <div className="hero-reveal hero-delay-4 mt-24 flex items-center justify-center gap-5 sm:gap-6">
+        <div className="hero-reveal hero-delay-4 mt-14 flex items-center justify-center gap-5 sm:gap-6">
           {featured.map((app, i) => (
             <a key={app.id} href={`/apps/${app.id}`} className="group relative">
               <div
@@ -386,7 +386,7 @@ export default function Hero() {
         </div>
 
         {/* ── Stats bar ── */}
-        <div className="hero-reveal hero-delay-5 mt-28 flex items-center justify-center">
+        <div className="hero-reveal hero-delay-5 mt-16 flex items-center justify-center">
           <div className="flex items-center divide-x divide-border border border-border rounded-2xl bg-white/70 backdrop-blur-sm px-2 py-5 shadow-sm">
             {[
               { val: String(apps.length), label: "Apps Published", suffix: "" },
@@ -406,7 +406,7 @@ export default function Hero() {
         </div>
 
         {/* ── Scroll indicator ── */}
-        <div className="hero-reveal hero-delay-6 mt-16 flex justify-center">
+        <div className="hero-reveal hero-delay-6 mt-10 flex justify-center">
           <a href="#apps" className="flex flex-col items-center gap-2 text-muted-strong hover:text-muted transition-colors">
             <span className="text-[11px] uppercase tracking-widest font-medium">Explore</span>
             <ChevronDown className="w-4 h-4 animate-bounce" />
