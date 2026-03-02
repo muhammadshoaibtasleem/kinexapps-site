@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import AppsShowcase from "@/components/AppsShowcase";
 import Features from "@/components/Features";
+import ServicesHighlight from "@/components/ServicesHighlight";
 import CTA from "@/components/CTA";
 import { apps } from "@/data/apps";
 
@@ -139,6 +140,7 @@ export default function Home() {
       <Hero />
       <AppsShowcase />
       <Features />
+      <ServicesHighlight />
       <CTA />
     </>
   );

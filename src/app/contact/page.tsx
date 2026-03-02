@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, ExternalLink } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Kinexapps — App Support & Business Inquiries",
@@ -95,54 +96,7 @@ export default function ContactPage() {
             </div>
 
             {/* Form */}
-            <div className="p-8 rounded-2xl border border-border bg-white shadow-sm">
-              <h3 className="text-lg font-semibold mb-6">Send a message</h3>
-              <form action="mailto:support@kinexapps.com" method="POST" encType="text/plain" className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-[13px] text-muted font-medium mb-2">Name</label>
-                  <input
-                    type="text" id="name" name="name" required
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-surface/50 text-foreground text-[14px] focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-strong"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-[13px] text-muted font-medium mb-2">Email</label>
-                  <input
-                    type="email" id="email" name="email" required
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-surface/50 text-foreground text-[14px] focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-strong"
-                    placeholder="you@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-[13px] text-muted font-medium mb-2">Subject</label>
-                  <select
-                    id="subject" name="subject"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-surface/50 text-foreground text-[14px] focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all"
-                  >
-                    <option value="general">General Inquiry</option>
-                    <option value="support">App Support</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="business">Business Inquiry</option>
-                    <option value="bug">Bug Report</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-[13px] text-muted font-medium mb-2">Message</label>
-                  <textarea
-                    id="message" name="message" rows={5} required
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-surface/50 text-foreground text-[14px] focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all resize-none placeholder:text-muted-strong"
-                    placeholder="How can we help?"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3 bg-foreground text-white text-[14px] font-semibold rounded-xl hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/10"
-                >
-                  Send message
-                </button>
-              </form>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
