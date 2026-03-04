@@ -10,7 +10,7 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 // 2. Enter your email → you'll get an access key instantly
 // 3. Replace the placeholder below with your real key
 // ──────────────────────────────────────────────────────────────
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = "26f1a5c6-06b5-4519-9910-375ad32e376a";
 
 function ContactFormInner() {
   const searchParams = useSearchParams();
