@@ -792,6 +792,351 @@ export const apps: App[] = [
       },
     ],
   },
+  {
+    id: "linko-dots",
+    name: "Linko Dots",
+    subtitle: "Color Connect Puzzle",
+    category: "Games",
+    categoryColor: "bg-violet-500",
+    description:
+      "A beautifully crafted dot-connecting puzzle game that's easy to learn but endlessly satisfying to master. Draw lines between same-colored dots to clear them, form squares and loops for massive chain reactions, and journey through 100 handcrafted levels across 5 stunning worlds — Meadow, Frost, Prism, Volcano, and Cosmos.",
+    features: [
+      "100 handcrafted levels across 5 worlds",
+      "Frozen, stone, rainbow & bomb dot mechanics",
+      "5 strategic power-ups (Color Bomb, Lightning, Shuffle…)",
+      "Combo & flow-mode score multipliers",
+      "Unlockable dot skins, themes & trail effects",
+      "Smooth haptics, no timers, relaxing soundscape",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/us/app/linko-dots-color-connect/id6759560421",
+    appStoreId: "6759560421",
+    icon: "/icons/linko-dots.png",
+    gradient: "from-violet-500 to-fuchsia-600",
+    platforms: ["iPhone", "iPad"],
+    price: "Free",
+    ageRating: "4+",
+    size: "14.3 MB",
+    metaTitle: "Linko Dots: Color Connect - Relaxing Dot Puzzle Game iOS",
+    metaDescription:
+      "Connect colored dots, build chain reactions, and master 100 handcrafted puzzle levels across 5 worlds. Linko Dots is a relaxing color-connect puzzle game for iPhone and iPad. Free.",
+    seoDescription:
+      "Linko Dots: Color Connect is a beautifully crafted dot-connecting puzzle game that combines simple, intuitive controls with deep strategic gameplay. Draw lines between same-colored dots to clear them from the board, connect in any direction including diagonals, and form squares or loops to trigger massive chain reactions that wipe entire colors off the grid in a single satisfying move.\n\nJourney through 100 handcrafted levels across five gorgeous themed worlds, each introducing new mechanics and challenges. Begin in the Meadow learning the basics, navigate frozen dots and stone blockers in Frost, master rainbow wildcards and complex objectives in Prism, defuse ticking bomb dots before they explode in Volcano, and face the ultimate puzzle challenge in the cosmic finale.\n\nFive strategic power-ups — Color Bomb, Lightning Chain, Shuffle, Convert, and +3 Moves — let you tackle even the toughest levels your way. Build streaks and momentum with the combo system to unlock score multipliers, and earn up to three stars on every level. Customize your experience with unlockable dot skins, board themes, and trail effects earned by completing levels.\n\nLinko Dots is perfect for puzzle fans who love relaxing, mindful gameplay without timers or pressure. Gorgeous animated gradient backgrounds, satisfying spring animations, haptic feedback, and a calming ambient soundscape make every session feel like a small mental vacation. Play at your own pace and discover why Linko Dots is one of the most polished color-connect puzzle games on iOS.",
+    keywords: [
+      "color connect puzzle game",
+      "dot connect game iPhone",
+      "relaxing puzzle game iOS",
+      "match colored dots game",
+      "puzzle game with power ups iPhone",
+      "chain reaction puzzle game",
+      "100 levels puzzle game",
+      "dotly dot connect",
+      "color matching puzzle iPad",
+      "best free puzzle game iOS 2026",
+      "Linko Dots",
+      "no timer puzzle game",
+    ],
+    faqs: [
+      {
+        question: "What is Linko Dots and how do you play?",
+        answer:
+          "Linko Dots is a color-connect puzzle game where you draw lines between same-colored dots to clear them from the board. Connect dots in any direction — including diagonals — and form squares or loops to trigger chain reactions that clear entire colors at once.",
+      },
+      {
+        question: "How many levels does Linko Dots have?",
+        answer:
+          "Linko Dots includes 100 handcrafted levels spread across five themed worlds: Meadow, Frost, Prism, Volcano, and Cosmos. Each world introduces new mechanics like frozen dots, stone blockers, rainbow wildcards, and bomb dots.",
+      },
+      {
+        question: "Is Linko Dots free to play on iPhone?",
+        answer:
+          "Yes, Linko Dots is free to download on the App Store for iPhone and iPad. The full 100-level campaign is playable without any time pressure or forced timers.",
+      },
+      {
+        question: "What power-ups are available in Linko Dots?",
+        answer:
+          "You can equip up to three power-ups before each level: Color Bomb (clears all dots of one color), Lightning Chain (connects any adjacent dots), Shuffle (rearranges the board), Convert (changes a dot's color), and +3 Moves (extra moves when stuck).",
+      },
+    ],
+    rating: { average: 0, count: 0 },
+    reviews: [],
+  },
+  {
+    id: "eid-greetings",
+    name: "Eid Greetings Cards 2026",
+    subtitle: "Eid Mubarak Cards & Wishes",
+    category: "Utilities",
+    categoryColor: "bg-emerald-500",
+    description:
+      "Celebrate Eid Ul Fitr and Eid Ul Adha with elegant, share-ready greeting cards. Pick a beautiful template, personalize your message with custom text, styles, and colors, then instantly share to WhatsApp, Instagram, email, and more — all in one festive Eid Mubarak app.",
+    features: [
+      "Curated Eid Ul Fitr & Eid Ul Adha card collections",
+      "Add custom text — move, style, color, size",
+      "Instant sharing to WhatsApp, Instagram, email",
+      "HD download & export option",
+      "Arabic-inspired visuals with festive music",
+      "Premium card packs & customization unlocks",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/us/app/eid-greetings-cards-2026/id6759565686",
+    appStoreId: "6759565686",
+    icon: "/icons/eid-greetings.png",
+    gradient: "from-emerald-500 to-teal-600",
+    platforms: ["iPhone", "iPad"],
+    price: "Free",
+    ageRating: "4+",
+    size: "108.9 MB",
+    metaTitle: "Eid Greetings Cards 2026 - Eid Mubarak Wishes & Card Maker",
+    metaDescription:
+      "Send beautiful Eid Mubarak greeting cards for Eid Ul Fitr and Eid Ul Adha. Customize text, share to WhatsApp & Instagram in seconds. Free Eid Cards app for iPhone.",
+    seoDescription:
+      "Eid Greetings Cards 2026 is the all-in-one Eid Mubarak app for sending elegant, personalized greeting cards to family, friends, and loved ones during Eid Ul Fitr and Eid Ul Adha. Whether you're celebrating in person or sending wishes across the world, this app gives you everything you need to create beautiful festive messages in seconds.\n\nBrowse curated card collections designed specifically for both Eid occasions, each featuring Arabic-inspired typography, golden ornaments, crescent moons, lanterns, and traditional patterns that capture the spirit of the celebration. Add your own custom text — move it anywhere on the card, change the style, color, and size to match your message perfectly.\n\nThe streamlined flow — choose, customize, share — means you can have a personalized Eid greeting ready to send in under a minute. Share instantly to WhatsApp, Instagram Stories, Facebook, email, or save HD copies to your camera roll for later. Festive background music sets the mood while you craft your wishes.\n\nPerfect for personal greetings, social media stories, family group chats, and festive wishes. Premium unlocks add exclusive card packs, HD export, and the full customization experience for users who want even more design options. Eid Mubarak from Kinex Apps!",
+    keywords: [
+      "Eid Mubarak cards app",
+      "Eid greetings card maker",
+      "Eid Ul Fitr cards 2026",
+      "Eid Ul Adha greeting app",
+      "Eid wishes app iPhone",
+      "Ramadan and Eid cards iOS",
+      "custom Eid card maker",
+      "share Eid Mubarak WhatsApp",
+      "Eid card templates app",
+      "Islamic greeting cards app",
+      "Eid Greetings Cards 2026",
+      "best Eid app for iPhone",
+    ],
+    faqs: [
+      {
+        question: "What is the best Eid Mubarak greeting card app for iPhone?",
+        answer:
+          "Eid Greetings Cards 2026 offers curated Eid Ul Fitr and Eid Ul Adha card collections, full text customization, and one-tap sharing to WhatsApp, Instagram, and email — making it one of the easiest Eid card apps for iPhone and iPad.",
+      },
+      {
+        question: "Can I personalize the Eid cards with my own message?",
+        answer:
+          "Yes! You can add custom text to every card, then move it, restyle the font, change colors, and adjust size to make each greeting feel personal before sharing or downloading.",
+      },
+      {
+        question: "Does the app cover both Eid Ul Fitr and Eid Ul Adha?",
+        answer:
+          "Yes — Eid Greetings Cards 2026 includes separate curated collections for both Eid Ul Fitr and Eid Ul Adha, so you have appropriate designs for each celebration in a single app.",
+      },
+      {
+        question: "How do I share an Eid greeting card to WhatsApp?",
+        answer:
+          "After customizing your card, tap the share button to instantly send it to WhatsApp, Instagram Stories, email, or any other app installed on your iPhone. You can also download HD copies to your camera roll.",
+      },
+    ],
+    rating: { average: 0, count: 0 },
+    reviews: [],
+  },
+  {
+    id: "math-world",
+    name: "Math World",
+    subtitle: "Learn & Practice Math",
+    category: "Education",
+    categoryColor: "bg-blue-500",
+    description:
+      "Make learning math exciting with beautifully designed lessons, video tutorials, creative number poems, and interactive quizzes. Math World covers addition, subtraction, multiplication, and division through colorful themed interfaces and SpriteKit-powered animations — perfect for building strong math foundations.",
+    features: [
+      "Lessons for addition, subtraction, multiplication & division",
+      "Curated video tutorials for visual learners",
+      "123 number poems (premium)",
+      "Interactive quizzes with instant feedback",
+      "SpriteKit-powered animations",
+      "Works offline — no account required",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/us/app/math-world-learn-practice/id6760903687",
+    appStoreId: "6760903687",
+    icon: "/icons/math-world.png",
+    gradient: "from-blue-500 to-cyan-600",
+    platforms: ["iPhone", "iPad"],
+    price: "Free",
+    ageRating: "4+",
+    size: "141.4 MB",
+    metaTitle: "Math World - Learn & Practice Math App for iPhone & iPad",
+    metaDescription:
+      "Master addition, subtraction, multiplication & division with Math World's lessons, video tutorials, and interactive quizzes. Fun math learning for all ages. Free on iOS.",
+    seoDescription:
+      "Math World is a fun and interactive way to learn math, blending beautifully designed lessons, video tutorials, creative number poems, and challenging quizzes into one engaging educational app. Whether you are just starting out or brushing up on the basics, Math World makes addition, subtraction, multiplication, and division genuinely exciting to study.\n\nStep through clear, visual lessons for every core math topic. Each lesson is built around a colorful theme with easy-to-follow explanations that make abstract math concepts click into place. Curated video tutorials bring math to life through expert explanations you can pause, rewind, and follow along with at your own pace — perfect for visual learners.\n\nThe four core topics — addition, subtraction, multiplication, and division — are each taught through dedicated themed interfaces with interactive SpriteKit-powered animations. Build a strong foundation with step-by-step addition lessons, master taking away with visual subtraction explanations, learn times tables through engaging multiplication content, and understand sharing and grouping with clear division examples.\n\nTest your skills with interactive quizzes that include multiple choice and true/false problems, plus instant feedback so you know immediately what to review. Unlock the exclusive 123 Poems section and remove all advertisements with a one-time premium purchase. Math World works completely offline with no account required, so kids and adults can start learning instantly anywhere, anytime.",
+    keywords: [
+      "math learning app iPhone",
+      "addition subtraction multiplication division app",
+      "kids math practice app iOS",
+      "interactive math quiz game",
+      "math lessons app for iPad",
+      "video math tutorials app",
+      "best free math app for kids",
+      "times tables app iPhone",
+      "math foundations app",
+      "offline math learning app",
+      "Math World",
+      "math practice for beginners",
+    ],
+    faqs: [
+      {
+        question: "What math topics does Math World cover?",
+        answer:
+          "Math World covers all four core arithmetic topics — addition, subtraction, multiplication, and division — through dedicated lessons, video tutorials, and interactive quizzes designed to build a strong math foundation.",
+      },
+      {
+        question: "Is Math World free to download?",
+        answer:
+          "Yes, Math World is free to download on the App Store. A one-time premium purchase removes ads and unlocks the exclusive 123 Poems section, but all core lessons and quizzes are free.",
+      },
+      {
+        question: "Does Math World work without internet?",
+        answer:
+          "Yes! Math World works completely offline with no account required. All lessons, quizzes, and animations are available instantly after download — perfect for travel, classrooms, or areas with limited connectivity.",
+      },
+      {
+        question: "Is Math World suitable for kids and adults?",
+        answer:
+          "Math World is designed for anyone who wants to strengthen their math foundations — from kids learning their first addition facts to adults brushing up on multiplication and division. Themed interfaces and clear visuals make it approachable at any age.",
+      },
+    ],
+    rating: { average: 0, count: 0 },
+    reviews: [],
+  },
+  {
+    id: "little-panda-adventures",
+    name: "Little Panda Adventures",
+    subtitle: "Cozy Interactive Stories",
+    category: "Education",
+    categoryColor: "bg-lime-500",
+    description:
+      "A cozy interactive story experience where every choice shapes the journey. Join Panda on 6 wholesome adventures told through warm animated video stories — pick Panda's next move at pivotal moments and watch each gentle outcome unfold. No failure states, just encouraging storytelling about kindness, sharing, and gratitude.",
+    features: [
+      "6 fully voiced animated adventure days",
+      "Interactive choose-your-path moments",
+      "Themes: kindness, sharing, gratitude, manners",
+      "No failure states — encouraging storytelling",
+      "Hand-animated treehouse world",
+      "Ad-free with full version, safe & private",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/us/app/little-panda-adventures/id6760255651",
+    appStoreId: "6760255651",
+    icon: "/icons/little-panda.png",
+    gradient: "from-lime-500 to-green-600",
+    platforms: ["iPhone", "iPad"],
+    price: "Free",
+    ageRating: "4+",
+    size: "207.6 MB",
+    metaTitle: "Little Panda Adventures - Cozy Interactive Story App for Kids",
+    metaDescription:
+      "Join Panda on 6 wholesome interactive story adventures about kindness, sharing & gratitude. Choose Panda's next move in this cozy animated storytelling app for kids. Free.",
+    seoDescription:
+      "Little Panda Adventures is a cozy interactive storytelling app for young children where every choice shapes the journey. Join Panda on six wholesome adventures, each told through warm, hand-animated video stories. At pivotal moments in every tale, two big colorful buttons appear and your child decides what Panda does next — and every choice unfolds a different gentle outcome.\n\nThis is interactive storytelling done with care. Children are not just watching — they are part of the story. Choose kindly and the story celebrates it. Choose differently and Panda has a gentle 'oops' moment and tries again. There are no failure states, no penalties, no scary consequences — just warm, encouraging storytelling that makes children feel safe to explore and experiment.\n\nThe six adventure days each focus on a wholesome social-emotional theme. Day 1 follows Panda's morning routines from brushing teeth to tidying up. Day 2 captures the excitement of going to school for the first time. Day 3 teaches good manners through saying please, taking turns, and apologizing. Day 4 explores sharing cookies, toy blocks, and balls with friends. Day 5 shows the joy of helping a friend in need. Day 6 reinforces remembering to say thank you.\n\nEvery scene is fully voiced with gentle ambient music and hand-crafted treehouse-world artwork. Large, easy-to-tap choice buttons make the app accessible to even the youngest children. Little Panda Adventures is ad-free with full-version purchase and completely safe — no social features, no external links, no personal data collection.",
+    keywords: [
+      "interactive story app for kids",
+      "kids storytelling app iOS",
+      "panda adventures kids app",
+      "social emotional learning app preschool",
+      "kindness sharing app for toddlers",
+      "choose your own adventure kids iPhone",
+      "animated story app for children",
+      "ad free kids story app",
+      "wholesome kids app iPad",
+      "manners and gratitude app for kids",
+      "Little Panda Adventures",
+      "no failure kids story game",
+    ],
+    faqs: [
+      {
+        question: "What is Little Panda Adventures?",
+        answer:
+          "Little Panda Adventures is a cozy interactive storytelling app where children join Panda on 6 animated video adventures and choose what Panda does at key moments. Themes include kindness, sharing, manners, and gratitude.",
+      },
+      {
+        question: "Are there any failure states or scary moments?",
+        answer:
+          "No — Little Panda Adventures has no failure states or penalties. Every choice leads to a gentle outcome. If a child picks differently, Panda simply has a soft 'oops' moment and tries again, keeping the experience warm and encouraging.",
+      },
+      {
+        question: "Is Little Panda Adventures safe for young children?",
+        answer:
+          "Yes. The app collects no personal data, has no social features, no external links, and is ad-free with the full-version purchase — making it a completely safe storytelling experience for young children.",
+      },
+      {
+        question: "What ages is Little Panda Adventures designed for?",
+        answer:
+          "Little Panda Adventures is designed for preschool and early-elementary children. Large choice buttons, fully voiced narration, and gentle pacing make it accessible to even the youngest readers and pre-readers.",
+      },
+    ],
+    rating: { average: 0, count: 0 },
+    reviews: [],
+  },
+  {
+    id: "wild-world-safari",
+    name: "Wild World Academy Safari",
+    subtitle: "Animal Learning Adventure",
+    category: "Education",
+    categoryColor: "bg-amber-500",
+    description:
+      "A family-friendly animal learning adventure across 6 incredible biomes. Join Leo the Lion on a safari through Farm, Desert, Arctic, Jungle, Ocean, and Sky World — discover 60 amazing animals, learn fun facts, and test your knowledge with engaging trivia to earn stars and unlock new zones.",
+    features: [
+      "6 wild biomes to explore",
+      "60 amazing animals with real facts",
+      "Animal trivia quizzes with star rewards",
+      "Hand-crafted procedural artwork",
+      "Friendly voice-overs guide the experience",
+      "Daily surprises & progress tracking",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/us/app/wild-world-academy-safari/id6759614684",
+    appStoreId: "6759614684",
+    icon: "/icons/wild-world-safari.png",
+    gradient: "from-amber-500 to-orange-600",
+    platforms: ["iPhone", "iPad"],
+    price: "Free",
+    ageRating: "4+",
+    size: "124.8 MB",
+    metaTitle: "Wild World Academy Safari - Animal Learning App for Kids",
+    metaDescription:
+      "Explore 6 biomes and discover 60 animals with Leo the Lion. Wild World Academy Safari teaches kids real animal facts through trivia adventures. Free on iPhone & iPad.",
+    seoDescription:
+      "Wild World Academy Safari is a family-friendly animal learning adventure that takes children on a guided journey through six incredible biomes. Join Leo the Lion on a global safari to discover 60 amazing animals, learn fascinating facts about the animal kingdom, and test what you've learned through engaging trivia challenges.\n\nExplore six wild biomes, each filled with their own unique inhabitants. Meet friendly farm animals like cows, horses, and chickens on the farm. Discover tough desert survivors like camels and fennec foxes. Brave the cold of the Arctic with polar bears, penguins, and narwhals. Swing through jungle trees with monkeys, tigers, and toucans. Dive deep into the ocean alongside dolphins, sharks, and sea turtles. Soar through Sky World with eagles, flamingos, and hummingbirds.\n\nEvery animal comes with carefully written trivia questions that teach real facts about how each species lives, eats, and survives. Answer correctly to earn stars and unlock new zones, building knowledge of the natural world while keeping the experience exciting and rewarding. Friendly voice-overs guide young learners through each biome, while beautiful hand-crafted procedural artwork ensures there are no loading screens between adventures.\n\nDaily surprises keep children coming back to discover something new every day. Wild World Academy Safari is the perfect blend of education and entertainment — a safe, content-rich animal trivia game for curious kids who love nature, geography, and the animal kingdom.",
+    keywords: [
+      "animal learning app for kids",
+      "kids safari adventure app",
+      "animal trivia game for children",
+      "biomes and ecosystems app for kids",
+      "learn about animals app iPhone",
+      "animal facts game iOS",
+      "preschool animal learning app",
+      "ocean jungle desert animals app kids",
+      "educational safari app for iPad",
+      "kids nature trivia game",
+      "Wild World Academy Safari",
+      "animal kingdom learning game",
+    ],
+    faqs: [
+      {
+        question: "What does Wild World Academy Safari teach kids?",
+        answer:
+          "Wild World Academy Safari teaches children real facts about 60 animals across 6 biomes — Farm, Desert, Arctic, Jungle, Ocean, and Sky World. Each animal includes trivia questions that reinforce learning about habitats, diets, and behaviors.",
+      },
+      {
+        question: "How many animals and biomes are in the app?",
+        answer:
+          "The app features 60 amazing animals spread across 6 distinct biomes: Farm, Desert, Arctic, Jungle, Ocean, and Sky World. Each biome has its own unique inhabitants with real animal facts and trivia.",
+      },
+      {
+        question: "Is Wild World Academy Safari good for preschoolers?",
+        answer:
+          "Yes! Friendly voice-overs guide the experience, hand-crafted procedural artwork keeps things visually engaging, and the trivia is designed to be age-appropriate. It's perfect for curious kids who love animals and nature.",
+      },
+      {
+        question: "How do you earn stars in Wild World Academy Safari?",
+        answer:
+          "You earn stars by answering animal trivia questions correctly. Stars unlock new zones and biomes, encouraging children to learn more about the animal kingdom as they progress through the safari adventure.",
+      },
+    ],
+    rating: { average: 0, count: 0 },
+    reviews: [],
+  },
 ];
 
 export const categories = [
