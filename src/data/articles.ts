@@ -2087,4 +2087,248 @@ export const articles: Article[] = [
     ],
     ctaText: "Get a Free Quote — iOS, Android, or Both",
   },
+
+  // ─── SAAS CASE STUDY 1: How we shipped rubrica.app ───
+  {
+    slug: "how-we-shipped-rubrica-app-ai-saas-case-study",
+    type: "how-to",
+    title: "How We Shipped rubrica.app: Building a Production AI SaaS End-to-End",
+    metaTitle: "How We Shipped rubrica.app — AI SaaS Case Study (2026)",
+    metaDescription:
+      "A behind-the-scenes look at how Kinexapps shipped rubrica.app — a production AI rubric-feedback SaaS. Stack, AI pipeline, pricing model, and what we'd do differently next time.",
+    keywords: [
+      "AI SaaS case study",
+      "build an AI SaaS",
+      "Next.js AI SaaS",
+      "ship AI SaaS production",
+      "Vercel AI app case study",
+      "LLM SaaS architecture",
+      "how to build AI app",
+      "AI rubric tool",
+      "rubrica.app case study",
+      "production AI app stack 2026",
+    ],
+    publishDate: "2026-05-12",
+    updatedDate: "2026-05-12",
+    readTime: "12 min read",
+    intro:
+      "Most \"we built an AI SaaS\" posts stop at the demo screenshot. This one goes further. rubrica.app is a live production AI web app we designed, built, and launched at Kinexapps — students upload an assignment brief, marking rubric, and draft, and the app returns a criterion-by-criterion coverage report with quoted evidence and verified citations.\n\nIn this case study we walk through every layer we actually shipped: the product decisions, the AI pipeline, the citation verification, the credit-based payment model, and the production infrastructure. If you're a founder considering an AI SaaS — or a software house evaluating whether to take one on — this is the post we wish we'd had at the start.",
+    sections: [
+      {
+        heading: "The problem that made rubrica obvious",
+        content:
+          "Students get rubric-graded, but they rarely see how their draft actually maps to each criterion before submission. Generic AI writing tools don't read the rubric, can't quote evidence from the student's own draft, and routinely hallucinate citations.\n\nThe gap was specific enough to define a product around: read the rubric, read the draft, return a structured criterion-by-criterion coverage report with quoted evidence, and verify any references against CrossRef so hallucinated DOIs are caught before submission.\n\nThe lesson for anyone building an AI SaaS — the tighter the problem, the easier the product is to scope, price, and ship. Vague AI products (\"AI assistant for X\") are expensive to build and impossible to position. Specific ones ship.",
+      },
+      {
+        heading: "The stack we actually use",
+        content:
+          "rubrica.app runs on a stack we keep coming back to for AI SaaS work:\n\n• Frontend & app — Next.js (App Router) + TypeScript + Tailwind CSS. Server Components for the static shell, Server Actions for mutations, streaming for the long-running AI calls.\n\n• AI pipeline — an LLM behind a structured-output contract. The rubric and draft are normalised into a single prompt with criterion IDs; the model returns JSON keyed by criterion. No free-text parsing.\n\n• Citation verification — every reference the student includes (or that the model suggests) is checked against the CrossRef REST API. Hallucinated DOIs are flagged before they hit the report.\n\n• Document ingestion — PDFs, Word, plain text, and images are converted to text upfront so the AI never sees binary formats.\n\n• Payments — Stripe in credit-purchase mode. Users buy credits; each rubric check is a debit. Failed checks are refunded automatically so the user is never charged for a model error.\n\n• Hosting — Vercel. Fluid Compute for the long-running AI routes, the runtime cache for repeated rubric structure parses, and Vercel Blob for uploaded files.\n\nThe whole stack is boring on purpose. We have shipped enough AI products to know that the interesting work is in the AI pipeline and the pricing model — not in the framework choice.",
+      },
+      {
+        heading: "The AI pipeline, in plain English",
+        content:
+          "Every rubric check follows the same five steps:\n\n1. Ingest — the brief, rubric, and draft are converted to plain text. Rubrics often arrive as images or PDFs; we OCR them, normalise the criterion list, and assign each criterion a stable ID.\n\n2. Plan — we send the model a planning prompt that tells it what criteria exist and asks it to map the draft to each one. The output is structured JSON, not prose, so we can validate it programmatically.\n\n3. Evidence — for each criterion, the model is asked to quote the exact passages from the draft that support it. Quoted spans must be substrings of the draft — we verify this server-side and reject the response if a quote is hallucinated.\n\n4. Rewrite — for criteria that are partial or missing, the model proposes a voice-preserving paragraph rewrite. We constrain rewrites to a single paragraph and pass the original tone as part of the system prompt.\n\n5. Verify — citations in the draft are checked against CrossRef. Real DOIs are confirmed; invented ones are flagged in red.\n\nIf any step fails (model timeout, JSON parse error, evidence verification fail), the credit is refunded automatically. The user never pays for our mistakes.",
+      },
+      {
+        heading: "Pricing: why pay-per-check beat a subscription",
+        content:
+          "We considered a $9/month subscription. It made forecast revenue easier, but it punished the exact buyer we needed: a student who has one essay due next week.\n\nA pay-per-check credit model fit the actual use case. $0.49 per check, a $1.50 welcome credit, six free no-signup tools to demonstrate value, and unlimited free revisions on the same assignment so the user is rewarded for iterating.\n\nThe operational benefit is just as important: pay-per-check forces us to size every model call against a real unit price. If a check costs us more than $0.49 in inference, we have a margin problem we can see immediately — not a churn problem we discover six months later.\n\nFor any AI SaaS founder reading this: pick the pricing model that mirrors how the user actually uses the product. Subscriptions work when usage is continuous. Credits work when usage is event-driven.",
+      },
+      {
+        heading: "What we'd do differently next time",
+        content:
+          "Three honest lessons from shipping rubrica:\n\n1. Build the AI evaluation harness first. We wrote one in week three when we should have written it in week one. An AI product without an evaluation suite is a product you cannot improve safely.\n\n2. Treat the rubric parser as the moat. The model writes the feedback, but it's the rubric-normalisation step that decides whether feedback is good. We invested more there in v2 and quality jumped.\n\n3. Ship the free tools earlier. The six no-signup tools (essay-length checker, reference-format converter, etc.) drive a surprising share of signups. We launched them as an afterthought; they should have shipped on day one.\n\nIf you're considering hiring a software house to build an AI SaaS, ask them what their evaluation strategy is before you ask about the framework. The rest is plumbing.",
+      },
+    ],
+    appSpotlight: {
+      appId: "rubrica",
+      heading: "The live product behind this case study",
+      description:
+        "rubrica.app is the production AI SaaS we built end-to-end — design, frontend, backend, AI pipeline, payments, and operations. If you want a SaaS like it, this is the kind of work we deliver.",
+    },
+    faqs: [
+      {
+        question: "How long did it take to ship rubrica.app?",
+        answer:
+          "A focused AI SaaS at this scope ships in 8–12 weeks with a tight team. The first half is product and AI-pipeline design; the second half is payments, polish, and hardening. Add 4 weeks if you also need an evaluation harness and a marketing site.",
+      },
+      {
+        question: "Can Kinexapps build a similar AI SaaS for my idea?",
+        answer:
+          "Yes — rubrica.app is the explicit case study we point to when clients ask. We can deliver the full stack end-to-end (product, design, frontend, backend, AI pipeline, payments, ops) or plug into an existing team. Get a free quote via /contact.",
+      },
+      {
+        question: "What does a production AI SaaS like this actually cost?",
+        answer:
+          "Realistic 2026 budgets sit at $40k–$120k AUD depending on the AI pipeline complexity, the number of model calls per check, and the integrations (payments, document ingestion, third-party APIs). We give a fixed-milestone quote after a Discovery call.",
+      },
+    ],
+    ctaText: "Get a Free Quote for Your AI SaaS",
+  },
+
+  // ─── SAAS CASE STUDY 2: AI SaaS Stack on Vercel ───
+  {
+    slug: "ai-saas-stack-vercel-2026-what-we-use",
+    type: "how-to",
+    title: "The AI SaaS Stack on Vercel in 2026: What We Actually Use to Ship Production AI Apps",
+    metaTitle: "AI SaaS Stack on Vercel in 2026 — What We Actually Use",
+    metaDescription:
+      "An opinionated, production-tested stack for shipping AI SaaS on Vercel in 2026. Next.js, AI SDK, Stripe, Fluid Compute — and what we leave out. Used to ship rubrica.app.",
+    keywords: [
+      "AI SaaS stack 2026",
+      "Next.js Vercel AI stack",
+      "production AI app stack",
+      "AI SDK Vercel",
+      "Fluid Compute AI app",
+      "LLM SaaS architecture",
+      "AI Gateway Vercel",
+      "Next.js Stripe AI app",
+      "Vercel AI SaaS deployment",
+      "build AI SaaS on Vercel",
+    ],
+    publishDate: "2026-05-12",
+    updatedDate: "2026-05-12",
+    readTime: "10 min read",
+    intro:
+      "Founders and CTOs ask us the same question every quarter: what stack would you pick today, in 2026, if you were starting an AI SaaS from scratch?\n\nThis is the answer — written after shipping rubrica.app on this exact stack. It is opinionated, narrow, and boring on purpose. The interesting work in an AI product is the AI pipeline and the unit economics, not the framework. The job of the stack is to get out of the way.",
+    sections: [
+      {
+        heading: "Frontend & app — Next.js App Router on Vercel",
+        content:
+          "Default to Next.js (App Router) on Vercel. Reasons in order of importance:\n\n• Server Components — your AI calls live on the server, your tokens never touch the client, and your bundle stays small.\n• Streaming — long-running AI responses stream back to the UI without bespoke websocket infra.\n• Server Actions — mutations (\"start a check\", \"buy credits\") become a one-file end-to-end thing instead of a REST shuffle.\n• Cache Components — the static shell of every page is prerendered; only the live data wraps in Suspense.\n\nWe use TypeScript everywhere and Tailwind for styling. Boring is the point.",
+      },
+      {
+        heading: "AI calls — the Vercel AI SDK + AI Gateway",
+        content:
+          "We use the Vercel AI SDK for every model call and route them through the Vercel AI Gateway by default. The Gateway gives us provider strings like \"anthropic/claude-haiku-4-5\" or \"openai/gpt-5\" without committing to a single provider package, plus observability, failover, and zero data retention out of the box.\n\nWhy not call providers directly? Two reasons. First, model markets move fast — being able to A/B route between providers without code changes is a real operational win. Second, the AI Gateway handles fallbacks, so if a provider has an outage you don't go down with it.\n\nFor anything structured (JSON output, tool calls), the AI SDK's generateObject + Zod schemas have replaced our hand-rolled parsing entirely.",
+      },
+      {
+        heading: "Compute — Fluid Compute, not edge",
+        content:
+          "We default to Fluid Compute for AI routes. Edge Functions used to be tempting for low latency, but the Node compatibility issues never paid off for AI workloads — most useful libraries (PDF parsers, embeddings clients, tokenisers) want Node, not edge.\n\nFluid Compute reuses function instances across requests, which dramatically reduces cold starts on AI endpoints that load tokenisers or prompt templates. Combined with the 300-second default timeout, it handles long-running AI calls without bespoke infrastructure.",
+      },
+      {
+        heading: "Storage — Blob for files, Marketplace for everything else",
+        content:
+          "Uploaded files (rubrics, drafts, images for OCR) go to Vercel Blob. Public bucket for assets, private bucket for user-uploaded content. The API is small enough that we don't write an abstraction layer.\n\nFor relational data we provision a Neon Postgres instance from the Vercel Marketplace — Marketplace integrations auto-provision the environment variables so there's no juggling DATABASE_URLs by hand. For ephemeral caches (rate limits, idempotency keys) we use Upstash Redis, also via the Marketplace.\n\nVercel Postgres and Vercel KV are gone — don't reach for them out of memory. The Marketplace integrations are what you want now.",
+      },
+      {
+        heading: "Payments — Stripe in credits mode",
+        content:
+          "For AI products where usage is event-driven (\"run a check\", \"generate an image\"), pay-per-check credit balances are a better fit than subscriptions. Stripe handles the payment side; our app stores a credit ledger.\n\nThe stack: Stripe Checkout for top-ups, a webhook to credit the user's ledger, and a Server Action on every AI route that debits before the call and refunds on failure. Don't over-engineer it.",
+      },
+      {
+        heading: "Observability — the boring stuff that saves you",
+        content:
+          "Three things we wire up on day one for every AI SaaS:\n\n• Vercel Analytics + Speed Insights for the marketing-site side.\n• A model-call log table in Postgres (request id, model, tokens, latency, success). Every AI route writes one row. This is your eval data later.\n• Sentry for errors, with the AI route name and model id tagged on every event.\n\nNothing exotic. The trick is having it from day one, not bolting it on at month six.",
+      },
+      {
+        heading: "What we deliberately leave out",
+        content:
+          "Things you don't need on day one:\n\n• A bespoke queue. Fluid Compute handles long requests; you only need queues when you have minutes-long jobs or fan-out. If you do, reach for Vercel Queues or Vercel Workflow.\n• An ORM. The Postgres driver and hand-written SQL beats a heavy ORM for AI apps where most queries are simple.\n• A monorepo. One repo per product. You can split later if you must.\n• A custom auth layer. Clerk via the Vercel Marketplace handles 95% of cases and provisions env vars automatically.\n\nThe goal is to ship the product, not the platform. This stack is what got rubrica.app from idea to live SaaS — and it's what we reach for first when a client asks us to ship theirs.",
+      },
+    ],
+    appSpotlight: {
+      appId: "rubrica",
+      heading: "Built on this exact stack",
+      description:
+        "rubrica.app is the production AI SaaS we shipped on the stack above — Next.js, Vercel AI SDK, AI Gateway, Fluid Compute, Stripe credits. If you want a SaaS like it, this is the kind of work we deliver.",
+    },
+    faqs: [
+      {
+        question: "Why not just use OpenAI's API directly?",
+        answer:
+          "Calling providers directly works for a prototype, but it locks you into one provider and gives you no observability. The Vercel AI SDK + AI Gateway lets you swap models without code changes and gives you logs, failover, and zero data retention by default.",
+      },
+      {
+        question: "Is this stack overkill for a small AI SaaS MVP?",
+        answer:
+          "No — every component scales down to zero cost or near-zero cost on Vercel. The benefit of starting on this stack is that you don't have to rewrite when traffic actually arrives.",
+      },
+      {
+        question: "Can Kinexapps build my AI SaaS on this stack?",
+        answer:
+          "Yes — this is our default stack for AI SaaS work. We've shipped rubrica.app on it end-to-end and can do the same for your product. Get a free quote via the contact page.",
+      },
+    ],
+    ctaText: "Get a Free Quote — AI SaaS on Vercel",
+  },
+
+  // ─── SAAS CASE STUDY 3: Hire a Software House for an AI SaaS ───
+  {
+    slug: "how-to-hire-software-house-for-ai-saas",
+    type: "how-to",
+    title: "How to Hire a Software House to Build Your AI SaaS (Without Getting Burned)",
+    metaTitle: "How to Hire a Software House for an AI SaaS — Founder Guide (2026)",
+    metaDescription:
+      "A founder's guide to hiring a software house for an AI SaaS. The questions that separate real builders from agencies that have never shipped an AI product. With a live case study.",
+    keywords: [
+      "hire software house AI SaaS",
+      "AI software development agency",
+      "hire AI developer Australia",
+      "choose AI development agency",
+      "AI SaaS development agency",
+      "questions to ask software house",
+      "AI app development cost Australia",
+      "AI SaaS founder guide",
+      "build AI product agency",
+      "software house vs agency",
+    ],
+    publishDate: "2026-05-12",
+    updatedDate: "2026-05-12",
+    readTime: "9 min read",
+    intro:
+      "If you have an AI SaaS idea and you're not a developer, you have two paths: hire a software house to build it for you, or hire freelancers and stitch them together yourself. This guide is about the first path.\n\nMost agencies will pitch an AI SaaS like it's a marketing site with a chatbox. It isn't. An AI product is a stack of unit-economics decisions, evaluation harnesses, and pricing experiments wrapped in some UI. Hiring the wrong team costs you the launch window and your runway.\n\nHere is what to look for, what to ask, and what to walk away from.",
+    sections: [
+      {
+        heading: "Software house vs agency vs freelancer — what's actually different",
+        content:
+          "These terms get mixed up, but the differences matter when you're spending money:\n\n• Agency — usually billable-hours model, often 10+ people, account managers between you and the engineers, marketing-led. Good for big brands that need scale and process. Expensive for a single AI SaaS MVP.\n\n• Software house — small senior team, fixed-milestone pricing, direct comms with the people building your product. Best fit for AI SaaS work where the engineer's judgement is the product.\n\n• Freelancers — one person, one role. Cheapest, but you're the integrator. Fine if you're technical; risky if you aren't.\n\nFor an AI SaaS that needs to ship in 8–16 weeks, a small software house is usually the right shape — fast enough to move, senior enough to make good architecture calls, and accountable enough that you're not chasing a Slack ghost.",
+      },
+      {
+        heading: "The 7 questions that separate real builders from cosplayers",
+        content:
+          "Ask every candidate these, and judge them on the specificity of the answers:\n\n1. Show me a live AI product you shipped end-to-end. Not a demo. Not a Figma file. A live URL with real users. If they can't, walk away.\n\n2. What's your evaluation strategy for the AI calls? If they look confused, they've never shipped an AI product. Real builders talk about test sets, golden samples, regression suites, and prompt versioning without flinching.\n\n3. How do you handle model failures and refunds? An honest answer covers JSON parse failures, timeouts, hallucinated outputs, and how credits or charges are reversed. \"It just works\" is not an answer.\n\n4. What's your stack and why? Vague answers (\"we use the latest tech\") are a red flag. A real software house has a default stack with opinions about it. See our breakdown at /blog/ai-saas-stack-vercel-2026-what-we-use.\n\n5. What pricing model do you recommend for my use case? If they don't push back on subscription vs credits vs metered, they haven't thought about your unit economics.\n\n6. Who actually writes the code? You want the same senior engineers in the pitch meeting and in the PR diffs. Agencies bait-and-switch this constantly.\n\n7. What happens after launch? Maintenance, prompt tuning, model upgrades, and security patches need a plan from day one. If they only quote build, you're paying twice.",
+      },
+      {
+        heading: "The red flags",
+        content:
+          "Walk away when you see:\n\n• No live AI product in their portfolio. Static brochure sites and Figma mockups don't count.\n• A long sales process with no engineer in the room until you sign.\n• Hourly billing for an MVP. Fixed milestones force the team to scope honestly.\n• Refusal to share their stack or methodology in writing.\n• \"We can build anything\" energy. The best teams have opinions about what they do and don't do.\n• A starting price under $5k for a real AI SaaS. Either they're cutting corners or they don't know what's involved.\n• A starting price over $200k for an MVP. Either there's massive agency overhead or they're padding the scope.",
+      },
+      {
+        heading: "What an honest scope looks like",
+        content:
+          "A real AI SaaS MVP scope from an honest team looks roughly like this:\n\n• Discovery (1–2 weeks): product strategy, user flows, AI pipeline design, pricing model, evaluation strategy. Output: a written brief and a fixed-milestone quote.\n\n• Design (2–3 weeks): brand, marketing site wireframes, product UI, design system. Output: a Figma file and component spec.\n\n• Build (6–10 weeks): frontend, backend, AI pipeline, payments, admin tools, observability. Output: a production deployment behind a staging URL.\n\n• Launch (1–2 weeks): payment hardening, security review, evaluation suite, documentation. Output: a live product on a real domain.\n\n• Support (ongoing): bug fixes, model upgrades, prompt tuning, new features. Output: a maintenance retainer or hourly retainer.\n\nTotal: 10–17 weeks, $40k–$120k AUD depending on AI complexity. Anything dramatically faster or cheaper is hiding scope. Anything dramatically longer is hiding agency overhead.",
+      },
+      {
+        heading: "Why we built rubrica.app",
+        content:
+          "We built rubrica.app — a live AI rubric-feedback SaaS — partly to solve a real problem for students, and partly so we could point at it when founders ask the very first question on our list (\"show me a live AI product you shipped\").\n\nIt's the cheapest credibility signal a software house can offer: not a deck, not a demo, but a production AI product with real users, real payments, and a real AI pipeline that has been hardened against real model failures.\n\nIf you're evaluating us — or any software house — apply the questions above. The team that ships your AI SaaS should be able to answer all seven with the same specificity. If they can't, keep looking.",
+      },
+    ],
+    appSpotlight: {
+      appId: "rubrica",
+      heading: "The proof we'd put under your scrutiny",
+      description:
+        "rubrica.app is our live AI SaaS — built end-to-end. We point at it when founders ask the hard questions. Read the case study, kick the tyres, then decide if you want us to build yours.",
+    },
+    faqs: [
+      {
+        question: "What does it cost to hire a software house for an AI SaaS in 2026?",
+        answer:
+          "Realistic 2026 ranges for an Australian software house: $40k–$120k AUD for an MVP depending on AI pipeline complexity and integrations. Larger products with multiple AI pipelines, complex permissions, or custom admin tools push higher.",
+      },
+      {
+        question: "Should I hire a software house or build with a no-code AI tool?",
+        answer:
+          "No-code AI tools work for prototypes and very simple products. If your SaaS has custom AI pipelines, credit-based pricing, payment integration, or scale requirements, custom development is the right investment. See our no-code vs custom guide for the full framework.",
+      },
+      {
+        question: "What's the single most important thing to check when hiring?",
+        answer:
+          "Ask for a live AI product they shipped end-to-end. Not a demo. A real URL with real users and real payments. If they can't point at one, they haven't actually shipped AI in production — and an MVP is not the time to find out.",
+      },
+    ],
+    ctaText: "Get a Free Quote — AI SaaS Development",
+  },
 ];

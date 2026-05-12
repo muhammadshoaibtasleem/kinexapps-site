@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Kinexapps — Australian Mobile App Studio";
+export const alt = "Kinexapps — Australian Software House for Web SaaS, iOS & AI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -72,7 +72,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          Australian Mobile App Studio
+          Australian Software House
         </div>
 
         {/* Stats row */}
@@ -84,9 +84,9 @@ export default async function Image() {
           }}
         >
           {[
-            { value: "8", label: "Apps" },
-            { value: "3", label: "Categories" },
-            { value: "Free", label: "Always" },
+            { value: "14", label: "Products" },
+            { value: "Web · iOS · AI", label: "Stack" },
+            { value: "24h", label: "Quote" },
           ].map((stat) => (
             <div
               key={stat.label}
@@ -133,7 +133,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          Games &bull; Education &bull; AI Utilities &bull; iOS &bull; iPadOS
+          Web SaaS &bull; iOS Apps &bull; AI Products &bull; Built end-to-end
         </div>
       </div>
     ),

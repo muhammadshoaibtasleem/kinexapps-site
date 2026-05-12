@@ -12,6 +12,7 @@ import {
   Star,
   Download,
   Sparkles,
+  Globe,
 } from "lucide-react";
 
 /* ═══════════════════════════════════════
@@ -61,6 +62,8 @@ function TiltCard({
    FEATURED SPOTLIGHT (first app, full-width)
    ═══════════════════════════════════════ */
 function FeaturedCard({ app }: { app: App }) {
+  const isWeb = app.appType === "web";
+
   return (
     <Link href={`/apps/${app.id}`} className="group block mb-6">
       <TiltCard>
@@ -76,7 +79,7 @@ function FeaturedCard({ app }: { app: App }) {
                 <div className="flex items-center gap-2 mb-5">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm text-[11px] text-white/80 font-semibold uppercase tracking-wider border border-white/10">
                     <Sparkles className="w-3 h-3" />
-                    Featured
+                    {isWeb ? "Case Study" : "Featured"}
                   </span>
                   <span className="px-2.5 py-1 rounded-full bg-white/10 text-[11px] text-white/60 font-medium border border-white/10">
                     {app.category}
@@ -84,8 +87,14 @@ function FeaturedCard({ app }: { app: App }) {
                 </div>
 
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-16 h-16 rounded-[16px] overflow-hidden border-2 border-white/20 shadow-lg shrink-0">
-                    <Image src={app.icon} alt={`${app.name} — ${app.subtitle} iOS app icon`} width={64} height={64} className="w-full h-full object-cover" />
+                  <div className={`w-16 h-16 rounded-[16px] overflow-hidden border-2 border-white/20 shadow-lg shrink-0 ${app.iconContain ? "bg-white p-2 flex items-center justify-center" : ""}`}>
+                    <Image
+                      src={app.icon}
+                      alt={`${app.name} — ${app.subtitle} ${isWeb ? "logo" : "iOS app icon"}`}
+                      width={64}
+                      height={64}
+                      className={`w-full h-full ${app.iconContain ? "object-contain" : "object-cover"}`}
+                    />
                   </div>
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -114,42 +123,85 @@ function FeaturedCard({ app }: { app: App }) {
 
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-[13px] font-semibold rounded-full group-hover:shadow-lg group-hover:shadow-white/20 transition-all">
-                    View App
+                    {isWeb ? "View Case Study" : "View App"}
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-4 py-2.5 border border-white/20 text-[12px] text-white/70 font-medium rounded-full">
-                    <Download className="w-3.5 h-3.5" />
-                    App Store
+                    {isWeb ? (
+                      <>
+                        <Globe className="w-3.5 h-3.5" />
+                        Live SaaS
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-3.5 h-3.5" />
+                        App Store
+                      </>
+                    )}
                   </span>
                 </div>
               </div>
 
-              {/* Right: iPhone mockup */}
+              {/* Right: device mockup (phone for iOS, browser for web) */}
               <div className="hidden lg:block shrink-0 phone-shadow">
-                <div className="relative w-[200px]">
-                  {/* Phone frame */}
-                  <div className="relative rounded-[32px] border-[6px] border-white/15 bg-black overflow-hidden shadow-2xl">
-                    {/* Notch */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80px] h-[22px] bg-black rounded-b-2xl z-20" />
-                    {/* Screen content */}
-                    <div className={`relative w-full aspect-[9/19.5] bg-gradient-to-br ${app.gradient} flex items-center justify-center`}>
-                      <Image
-                        src={app.icon}
-                        alt={app.name}
-                        width={80}
-                        height={80}
-                        className="w-20 h-20 rounded-[18px] shadow-xl border-2 border-white/20"
-                      />
-                      {/* Simulated UI lines */}
-                      <div className="absolute bottom-12 left-0 right-0 px-6 space-y-2">
-                        <div className="h-2.5 bg-white/25 rounded-full w-3/4 mx-auto" />
-                        <div className="h-2 bg-white/15 rounded-full w-1/2 mx-auto" />
+                {isWeb ? (
+                  <div className="relative w-[300px]">
+                    {/* Browser frame */}
+                    <div className="relative rounded-[14px] border border-white/15 bg-black overflow-hidden shadow-2xl">
+                      {/* Title bar */}
+                      <div className="flex items-center gap-1.5 px-3 py-2.5 bg-white/[0.06] border-b border-white/10">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                        <div className="ml-3 px-2.5 py-0.5 rounded-md bg-white/[0.08] text-[10px] text-white/50 font-mono truncate max-w-[180px]">
+                          {(app.appStoreUrl || "").replace(/^https?:\/\//, "")}
+                        </div>
+                      </div>
+                      {/* Screen content */}
+                      <div className={`relative w-full aspect-[16/10] bg-gradient-to-br ${app.gradient} flex items-center justify-center`}>
+                        <div className="w-24 h-24 rounded-[18px] overflow-hidden bg-white/95 p-3 shadow-xl border border-white/30">
+                          <Image
+                            src={app.icon}
+                            alt={app.name}
+                            width={72}
+                            height={72}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        {/* Simulated UI bars */}
+                        <div className="absolute bottom-6 left-0 right-0 px-10 space-y-1.5">
+                          <div className="h-2 bg-white/25 rounded-full w-3/4 mx-auto" />
+                          <div className="h-1.5 bg-white/15 rounded-full w-1/2 mx-auto" />
+                        </div>
                       </div>
                     </div>
-                    {/* Home indicator */}
-                    <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-[60px] h-[4px] bg-white/30 rounded-full" />
                   </div>
-                </div>
+                ) : (
+                  <div className="relative w-[200px]">
+                    {/* Phone frame */}
+                    <div className="relative rounded-[32px] border-[6px] border-white/15 bg-black overflow-hidden shadow-2xl">
+                      {/* Notch */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80px] h-[22px] bg-black rounded-b-2xl z-20" />
+                      {/* Screen content */}
+                      <div className={`relative w-full aspect-[9/19.5] bg-gradient-to-br ${app.gradient} flex items-center justify-center`}>
+                        <Image
+                          src={app.icon}
+                          alt={app.name}
+                          width={80}
+                          height={80}
+                          className="w-20 h-20 rounded-[18px] shadow-xl border-2 border-white/20"
+                        />
+                        {/* Simulated UI lines */}
+                        <div className="absolute bottom-12 left-0 right-0 px-6 space-y-2">
+                          <div className="h-2.5 bg-white/25 rounded-full w-3/4 mx-auto" />
+                          <div className="h-2 bg-white/15 rounded-full w-1/2 mx-auto" />
+                        </div>
+                      </div>
+                      {/* Home indicator */}
+                      <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-[60px] h-[4px] bg-white/30 rounded-full" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -177,12 +229,22 @@ function BentoCard({ app, size = "normal" }: { app: App; size?: "normal" | "wide
               {/* Icon + badges row */}
               <div className={`flex items-start gap-4 ${isWide ? "" : "mb-5"}`}>
                 <div className="relative">
-                  <div className="w-14 h-14 rounded-[14px] overflow-hidden border border-border/60 shadow-md group-hover:shadow-lg transition-shadow shrink-0">
-                    <Image src={app.icon} alt={`${app.name} — ${app.subtitle} iOS app icon`} width={56} height={56} className="w-full h-full object-cover" />
+                  <div className={`w-14 h-14 rounded-[14px] overflow-hidden border border-border/60 shadow-md group-hover:shadow-lg transition-shadow shrink-0 ${app.iconContain ? "bg-white p-2 flex items-center justify-center" : ""}`}>
+                    <Image
+                      src={app.icon}
+                      alt={`${app.name} — ${app.subtitle} ${app.appType === "web" ? "logo" : "iOS app icon"}`}
+                      width={56}
+                      height={56}
+                      className={`w-full h-full ${app.iconContain ? "object-contain" : "object-cover"}`}
+                    />
                   </div>
                   {/* Tiny platform indicator */}
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white border border-border shadow-sm flex items-center justify-center">
-                    <Smartphone className="w-2.5 h-2.5 text-muted-strong" />
+                    {app.appType === "web" ? (
+                      <Globe className="w-2.5 h-2.5 text-muted-strong" />
+                    ) : (
+                      <Smartphone className="w-2.5 h-2.5 text-muted-strong" />
+                    )}
                   </div>
                 </div>
 
@@ -370,11 +432,12 @@ export default function AppsShowcase() {
               Portfolio
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-              Our apps
+              Apps & SaaS we&apos;ve shipped
             </h2>
             <p className="text-[16px] text-muted leading-relaxed">
-              {apps.length} free iOS apps across games, education, and utilities.
-              All crafted with care in Australia.
+              {apps.length} shipped products — an AI web SaaS, iOS games,
+              education tools, and utilities. Every one is live in production:
+              proof of what we deliver as a software house.
             </p>
           </div>
 

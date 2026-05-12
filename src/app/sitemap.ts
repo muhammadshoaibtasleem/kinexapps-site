@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://kinexapps.com";
 
   // Use meaningful dates instead of new Date() on every build
-  const siteLastUpdated = new Date("2026-03-01");
+  const siteLastUpdated = new Date("2026-05-12");
   const legalLastUpdated = new Date("2026-02-26");
 
   const appPages = apps.map((app) => ({
@@ -60,7 +60,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services`,
       lastModified: siteLastUpdated,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/portfolio`,
+      lastModified: siteLastUpdated,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,

@@ -6,8 +6,9 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "/#apps", label: "Apps" },
   { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/#apps", label: "Apps" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -33,7 +34,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center">
           <Image
             src="/kinexapps-logo.png"
-            alt="Kinexapps — Australian mobile app studio"
+            alt="Kinexapps — Australian software house"
             width={180}
             height={44}
             className="h-10 w-auto"
@@ -51,14 +52,12 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <a
-            href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact?subject=quote"
             className="text-[13px] font-semibold text-white bg-foreground px-5 py-2 rounded-full hover:bg-foreground/90 transition-all hover:shadow-md"
           >
-            App Store
-          </a>
+            Get a quote
+          </Link>
         </div>
 
         <button
@@ -85,14 +84,13 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href="https://apps.apple.com/au/developer/muhammad-talseem/id1871192120"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact?subject=quote"
+              onClick={() => setOpen(false)}
               className="inline-block mt-3 text-[13px] font-semibold text-white bg-foreground px-5 py-2.5 rounded-full"
             >
-              App Store
-            </a>
+              Get a quote
+            </Link>
           </div>
         </div>
       )}

@@ -4,12 +4,12 @@ import Image from "next/image";
 import { apps } from "@/data/apps";
 import type { Metadata } from "next";
 import {
-  ArrowLeft,
   ExternalLink,
   Smartphone,
   Tablet,
   Monitor,
   Glasses,
+  Globe,
   Check,
   HelpCircle,
   Star,
@@ -20,6 +20,7 @@ const platformIcons: Record<string, React.ReactNode> = {
   iPad: <Tablet className="w-4 h-4" />,
   Mac: <Monitor className="w-4 h-4" />,
   "Apple Vision": <Glasses className="w-4 h-4" />,
+  Web: <Globe className="w-4 h-4" />,
 };
 
 type PageProps = {
@@ -59,26 +60,28 @@ export async function generateMetadata({
 }
 
 function getAppJsonLd(app: (typeof apps)[number]) {
+  const isWeb = app.appType === "web";
   return {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": isWeb ? "WebApplication" : "SoftwareApplication",
     name: app.name,
     alternateName: `${app.name}: ${app.subtitle}`,
     description: app.metaDescription,
     url: `https://kinexapps.com/apps/${app.id}`,
     image: `https://kinexapps.com${app.icon}`,
     screenshot: `https://kinexapps.com${app.icon}`,
-    applicationCategory:
-      app.category === "Games"
+    applicationCategory: isWeb
+      ? "BusinessApplication"
+      : app.category === "Games"
         ? "GameApplication"
         : app.category === "Education"
           ? "EducationalApplication"
           : "UtilitiesApplication",
-    operatingSystem: "iOS, iPadOS, macOS",
+    operatingSystem: isWeb ? "Web" : "iOS, iPadOS, macOS",
     applicationSubCategory: app.subtitle,
     offers: {
       "@type": "Offer",
-      price: "0",
+      price: isWeb ? app.price : "0",
       priceCurrency: "AUD",
       availability: "https://schema.org/InStock",
     },
@@ -181,6 +184,8 @@ export default async function AppPage({ params }: PageProps) {
   const app = apps.find((a) => a.id === id);
   if (!app) notFound();
 
+  const isWeb = app.appType === "web";
+
   const related = apps
     .filter((a) => a.id !== app.id && a.category === app.category)
     .slice(0, 3);
@@ -249,13 +254,13 @@ export default async function AppPage({ params }: PageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-16 items-start">
             <div>
               <div className="flex items-center gap-5 mb-6">
-                <div className="w-20 h-20 rounded-[20px] overflow-hidden border border-border/50 shadow-lg">
+                <div className={`w-20 h-20 rounded-[20px] overflow-hidden border border-border/50 shadow-lg ${app.iconContain ? "bg-white p-2 flex items-center justify-center" : ""}`}>
                   <Image
                     src={app.icon}
                     alt={`${app.name} app icon — ${app.subtitle}`}
                     width={80}
                     height={80}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full ${app.iconContain ? "object-contain" : "object-cover"}`}
                     priority
                   />
                 </div>
@@ -264,7 +269,9 @@ export default async function AppPage({ params }: PageProps) {
                     {app.name}: {app.subtitle}
                   </h1>
                   <p className="text-[15px] text-muted mt-0.5">
-                    Free {app.category} App for {app.platforms.join(", ")}
+                    {isWeb
+                      ? `${app.category} SaaS for ${app.platforms.join(", ")}`
+                      : `Free ${app.category} App for ${app.platforms.join(", ")}`}
                   </p>
                 </div>
               </div>
@@ -298,22 +305,38 @@ export default async function AppPage({ params }: PageProps) {
                 ))}
               </div>
 
-              <a
-                href={app.appStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-foreground text-white text-[14px] font-semibold rounded-full hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/10 hover:-translate-y-0.5"
-              >
-                <svg
-                  className="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={app.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-foreground text-white text-[14px] font-semibold rounded-full hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/10 hover:-translate-y-0.5"
                 >
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                </svg>
-                Download {app.name} on App Store
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                  {isWeb ? (
+                    <Globe className="w-4 h-4" />
+                  ) : (
+                    <svg
+                      className="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                  )}
+                  {isWeb
+                    ? `Visit ${app.name}`
+                    : `Download ${app.name} on App Store`}
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                {isWeb && (
+                  <Link
+                    href="/contact?subject=quote"
+                    className="inline-flex items-center gap-2 px-8 py-3 border border-border bg-white text-foreground text-[14px] font-semibold rounded-full hover:bg-surface transition-all"
+                  >
+                    Build something like this
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -494,32 +517,65 @@ export default async function AppPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Download CTA */}
+      {/* Bottom CTA */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold tracking-tight mb-4">
-            Download {app.name} for Free
-          </h2>
-          <p className="text-[15px] text-muted mb-8 max-w-lg mx-auto">
-            {app.name} is available as a free download on the App Store for{" "}
-            {app.platforms.join(", ")}. No subscriptions, no paywalls.
-          </p>
-          <a
-            href={app.appStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-foreground text-white text-[14px] font-semibold rounded-full hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/10 hover:-translate-y-0.5"
-          >
-            <svg
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-            </svg>
-            Free Download on App Store
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          {isWeb ? (
+            <>
+              <h2 className="text-2xl font-bold tracking-tight mb-4">
+                Want a web SaaS like {app.name}?
+              </h2>
+              <p className="text-[15px] text-muted mb-8 max-w-xl mx-auto">
+                {app.name} is a production case study built end-to-end by
+                Kinexapps — design, frontend, backend, AI pipeline, payments,
+                and ops. We can do the same for your idea.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Link
+                  href="/contact?subject=quote"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-foreground text-white text-[14px] font-semibold rounded-full hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/10 hover:-translate-y-0.5"
+                >
+                  Get a free quote
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </Link>
+                <a
+                  href={app.appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-3 border border-border bg-white text-foreground text-[14px] font-semibold rounded-full hover:bg-surface transition-all"
+                >
+                  <Globe className="w-4 h-4" />
+                  Visit {app.name}
+                </a>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="text-2xl font-bold tracking-tight mb-4">
+                Download {app.name} for Free
+              </h2>
+              <p className="text-[15px] text-muted mb-8 max-w-lg mx-auto">
+                {app.name} is available as a free download on the App Store for{" "}
+                {app.platforms.join(", ")}. No subscriptions, no paywalls.
+              </p>
+              <a
+                href={app.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-foreground text-white text-[14px] font-semibold rounded-full hover:bg-foreground/90 transition-all hover:shadow-lg hover:shadow-foreground/10 hover:-translate-y-0.5"
+              >
+                <svg
+                  className="w-4 h-4"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                Free Download on App Store
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </>
+          )}
         </div>
       </section>
     </div>

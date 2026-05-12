@@ -17,13 +17,13 @@ export default function AppCard({ app }: { app: App }) {
 
         <div className="relative flex items-start gap-4">
           {/* App icon */}
-          <div className="w-16 h-16 rounded-[16px] overflow-hidden border border-border/50 shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300">
+          <div className={`w-16 h-16 rounded-[16px] overflow-hidden border border-border/50 shrink-0 shadow-sm group-hover:shadow-md transition-shadow duration-300 ${app.iconContain ? "bg-white p-2 flex items-center justify-center" : ""}`}>
             <Image
               src={app.icon}
               alt={app.name}
               width={64}
               height={64}
-              className="w-full h-full object-cover"
+              className={`w-full h-full ${app.iconContain ? "object-contain" : "object-cover"}`}
             />
           </div>
 

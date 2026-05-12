@@ -2,14 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 const footerLinks = {
-  Apps: [
+  Products: [
+    { href: "/apps/rubrica", label: "Rubrica (AI SaaS)" },
     { href: "/apps/snapfix", label: "SnapFix" },
     { href: "/apps/theory-elite", label: "Theory Elite" },
     { href: "/apps/abc-kids", label: "ABC Kids" },
     { href: "/apps/laser-maze", label: "Laser Maze" },
     { href: "/apps/rollscape", label: "Rollscape" },
     { href: "/apps/orb-galaxy", label: "Orb Galaxy Sort" },
-    { href: "/apps/color-ball-drop", label: "Color Ball Drop" },
     { href: "/apps/learn-abc", label: "Learn ABC" },
   ],
   Categories: [
@@ -19,8 +19,9 @@ const footerLinks = {
     { href: "/blog", label: "Blog" },
   ],
   Company: [
-    { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ],
   Legal: [
@@ -39,14 +40,14 @@ export default function Footer() {
             <div className="mb-4">
               <Image
                 src="/kinexapps-logo.png"
-                alt="Kinexapps — Australian mobile app studio"
+                alt="Kinexapps — Australian software house"
                 width={120}
                 height={30}
                 className="h-7 w-auto"
               />
             </div>
             <address className="text-[13px] text-muted leading-relaxed not-italic">
-              Australian app studio crafting mobile experiences.
+              Software house — web SaaS, iOS apps & AI products.
               <br />
               Melbourne, Australia
               <br />

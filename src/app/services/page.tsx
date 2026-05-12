@@ -12,69 +12,76 @@ import {
   Clock,
   Users,
   CheckCircle2,
+  Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import StickyQuoteButton from "@/components/StickyQuoteButton";
 import { apps } from "@/data/apps";
 
 export const metadata: Metadata = {
-  title: "Hire an App Developer — iOS, Android & Web | Kinexapps Melbourne",
+  title:
+    "Hire a Software House — Web SaaS, iOS Apps & AI Products | Kinexapps Melbourne",
   description:
-    "Looking to build an app? Kinexapps is a Melbourne-based studio with 8 live App Store apps and 5-star ratings. We develop iOS, Android, and web apps with expert UI/UX design. Free quotes — no obligation.",
+    "Kinexapps is a Melbourne software house that ships web SaaS, iOS apps, and AI products end-to-end. Live case studies include rubrica.app (AI rubric SaaS) and 8 App Store apps. Free quotes — no obligation.",
   keywords: [
-    "hire app developer",
-    "app development services",
+    "software house Melbourne",
+    "software development agency Australia",
+    "AI SaaS development",
+    "hire a software house",
+    "web SaaS development",
+    "Next.js development agency",
     "iOS app development Melbourne",
     "Android app developer Australia",
-    "build an app",
+    "build an AI app",
     "custom mobile app development",
-    "web app development",
+    "MVP development agency",
     "UI/UX design services",
     "app maintenance",
-    "freelance app developer",
     "Kinexapps services",
   ],
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Hire an App Developer — iOS, Android & Web | Kinexapps",
+    title:
+      "Hire a Software House — Web SaaS, iOS Apps & AI Products | Kinexapps",
     description:
-      "Melbourne studio with 8 live App Store apps. iOS, Android, web development & UI/UX design. Get a free quote today.",
+      "Melbourne software house. Live products include rubrica.app AI SaaS and 8 App Store apps. End-to-end product delivery — get a free quote today.",
     url: "https://kinexapps.com/services",
   },
 };
 
 const services = [
   {
-    icon: Smartphone,
-    title: "iOS Development",
+    icon: Sparkles,
+    title: "AI Products & Web SaaS",
     description:
-      "Native iPhone, iPad, and Apple Watch apps built with Swift and SwiftUI. Optimised for performance and App Store approval.",
-    tech: ["Swift", "SwiftUI", "CoreML", "SpriteKit"],
-    color: "blue",
+      "End-to-end AI SaaS — landing page, app, backend, LLM pipeline, payments, analytics. See rubrica.app for a live production example.",
+    tech: ["Next.js", "TypeScript", "LLM / AI", "Stripe", "Vercel"],
+    color: "purple",
   },
   {
     icon: Smartphone,
-    title: "Android Development",
+    title: "iOS Development",
     description:
-      "Kotlin-first Android apps for phones, tablets, and Wear OS. Material Design 3 with smooth performance across devices.",
-    tech: ["Kotlin", "Jetpack Compose", "Firebase", "Material 3"],
-    color: "emerald",
+      "Native iPhone, iPad, Mac, and Apple Vision apps built with Swift and SwiftUI. Optimised for performance and App Store approval.",
+    tech: ["Swift", "SwiftUI", "CoreML", "SpriteKit"],
+    color: "blue",
   },
   {
     icon: Globe,
     title: "Web Development",
     description:
-      "Responsive web apps and progressive web apps using modern frameworks. SEO-ready, fast, and accessible by default.",
+      "Responsive marketing sites, dashboards, and progressive web apps. SEO-ready, fast, and accessible by default — deployed on Vercel.",
     tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    color: "purple",
+    color: "emerald",
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     description:
-      "User-centred design from wireframes to pixel-perfect prototypes. Usability testing and design systems included.",
+      "User-centred design from wireframes to pixel-perfect prototypes. Design systems, usability testing, and brand identity included.",
     tech: ["Figma", "Prototyping", "Design Systems", "A/B Testing"],
     color: "amber",
   },
@@ -82,7 +89,7 @@ const services = [
     icon: Wrench,
     title: "Maintenance & Support",
     description:
-      "Keep your app running smoothly with bug fixes, OS updates, performance monitoring, and feature enhancements.",
+      "Keep your app or SaaS running smoothly with bug fixes, OS updates, performance monitoring, AI prompt tuning, and feature enhancements.",
     tech: ["Bug Fixes", "OS Updates", "Monitoring", "Analytics"],
     color: "rose",
   },
@@ -97,48 +104,52 @@ const colorMap: Record<string, { bg: string; text: string; pill: string }> = {
 };
 
 const techStack = [
-  "Swift",
-  "SwiftUI",
-  "Kotlin",
-  "Jetpack Compose",
-  "React",
   "Next.js",
   "TypeScript",
+  "React",
   "Tailwind CSS",
-  "Node.js",
-  "Firebase",
-  "Figma",
+  "Vercel",
+  "AI / LLM",
+  "Stripe",
+  "PostgreSQL",
+  "Swift",
+  "SwiftUI",
   "CoreML",
   "SpriteKit",
-  "PostgreSQL",
+  "Node.js",
+  "Figma",
   "REST APIs",
   "GraphQL",
 ];
 
 const faqs = [
   {
-    q: "How long does it take to build an app?",
-    a: "Timelines vary by scope. A simple MVP can take 6\u20138 weeks, while a feature-rich app may take 3\u20136 months. We provide a detailed timeline during the Discovery phase.",
+    q: "Can you build a full AI SaaS for us \u2014 not just a prototype?",
+    a: "Yes. rubrica.app is our live case study: AI pipeline, frontend, backend, payments, citation verification, and ongoing operations \u2014 all shipped end-to-end by Kinexapps. We can do the same for your idea.",
   },
   {
-    q: "Do you build for both iOS and Android?",
-    a: "Yes. We offer native development for both platforms as well as cross-platform solutions when it makes sense for your budget and goals.",
+    q: "How long does it take to ship an app or SaaS?",
+    a: "Timelines vary by scope. A focused web SaaS or iOS MVP can ship in 6\u20138 weeks; a feature-rich AI product is typically 3\u20136 months. We provide a detailed timeline during the Discovery phase.",
   },
   {
-    q: "How much does app development cost?",
-    a: "Every project is different. We provide free, no-obligation quotes after understanding your requirements. Get in touch and we will give you a transparent breakdown.",
+    q: "Do you build web SaaS, iOS apps, or both?",
+    a: "Both. We ship native iOS apps (Swift / SwiftUI) and web SaaS (Next.js / TypeScript on Vercel), and we can integrate AI / LLM pipelines, Stripe payments, and analytics into either.",
+  },
+  {
+    q: "How much does it cost?",
+    a: "Every project is different. We provide free, no-obligation quotes after a short Discovery call. Get in touch and we will give you a transparent breakdown with fixed milestones.",
   },
   {
     q: "Do you offer ongoing maintenance after launch?",
-    a: "Absolutely. We offer flexible maintenance plans covering bug fixes, OS compatibility updates, performance monitoring, and feature enhancements.",
+    a: "Yes. Flexible maintenance plans cover bug fixes, OS updates, AI prompt tuning, performance monitoring, security patches, and feature enhancements.",
   },
   {
-    q: "Can you redesign or improve an existing app?",
-    a: "Yes. We work with clients to audit, redesign, and modernise existing apps \u2014 whether it is a UI refresh, performance overhaul, or adding new features.",
+    q: "Can you redesign or improve an existing app or SaaS?",
+    a: "Yes. We audit, redesign, and modernise existing products \u2014 whether it is a UI refresh, performance overhaul, AI integration, or adding new features.",
   },
   {
     q: "What is your development process?",
-    a: "We follow a six-step process: Discovery, Design, Development, Testing, Launch, and Support. Each phase includes check-ins so you are always in the loop.",
+    a: "Six steps: Discovery, Design, Development, Testing, Launch, and Support. Each phase includes weekly check-ins so you are always in the loop.",
   },
 ];
 
@@ -149,10 +160,10 @@ const avgRating = (apps.reduce((sum, app) => sum + app.rating.average * app.rati
 const professionalServiceJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Kinexapps App Development Services",
+  name: "Kinexapps Software House",
   url: "https://kinexapps.com/services",
   description:
-    "Professional app development services including iOS, Android, web development, UI/UX design, and ongoing maintenance. 8 live apps on the App Store.",
+    "Software house in Melbourne shipping web SaaS, iOS apps, and AI products end-to-end. Live case study at rubrica.app and 8 App Store apps.",
   provider: {
     "@type": "Organization",
     name: "Kinexapps",
@@ -160,11 +171,11 @@ const professionalServiceJsonLd = {
   },
   areaServed: "Worldwide",
   serviceType: [
+    "AI SaaS Development",
+    "Web SaaS Development",
     "iOS App Development",
-    "Android App Development",
-    "Web App Development",
-    "UI/UX Design",
-    "App Maintenance & Support",
+    "Product Design (UI/UX)",
+    "App & SaaS Maintenance",
   ],
   address: {
     "@type": "PostalAddress",
@@ -202,7 +213,9 @@ const faqJsonLd = {
   })),
 };
 
-// Pick 4 featured portfolio apps (diverse categories)
+const rubrica = apps.find((a) => a.id === "rubrica")!;
+
+// Pick 4 featured portfolio apps (diverse categories) — rubrica gets its own case-study block above
 const portfolioApps = [
   apps.find((a) => a.id === "snapfix")!,
   apps.find((a) => a.id === "theory-elite")!,
@@ -239,11 +252,21 @@ export default function ServicesPage() {
               Currently booking for Q2 2026
             </div>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6 max-w-2xl">
-              We build apps that grow your business
+              A software house that actually ships
             </h1>
             <p className="text-lg text-muted leading-relaxed max-w-xl mb-8">
-              From concept to launch and beyond — iOS, Android, web, and design
-              services from a studio with {apps.length} live apps and {avgRating}-star ratings.
+              Web SaaS, iOS apps, and AI products — built end-to-end. {apps.length} live
+              products in production, including the AI rubric SaaS{" "}
+              <a
+                href="https://rubrica.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground font-semibold hover:underline"
+              >
+                rubrica.app
+              </a>
+              . {avgRating}-star avg across {totalRatings} reviews. Get a free,
+              no-obligation quote in 24 hours.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -273,7 +296,7 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <div className="text-[18px] font-bold">{apps.length}</div>
-                  <div className="text-[12px] text-muted">Live App Store Apps</div>
+                  <div className="text-[12px] text-muted">Products in Production</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 md:justify-center md:px-4">
@@ -290,8 +313,8 @@ export default function ServicesPage() {
                   <Clock className="w-4 h-4 text-emerald-600" />
                 </div>
                 <div>
-                  <div className="text-[18px] font-bold">2+ yrs</div>
-                  <div className="text-[12px] text-muted">Development Experience</div>
+                  <div className="text-[18px] font-bold">24h</div>
+                  <div className="text-[12px] text-muted">Quote Turnaround</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 md:justify-center md:px-4">
@@ -299,8 +322,8 @@ export default function ServicesPage() {
                   <Users className="w-4 h-4 text-purple-600" />
                 </div>
                 <div>
-                  <div className="text-[18px] font-bold">3</div>
-                  <div className="text-[12px] text-muted">Platforms (iOS, Web, Android)</div>
+                  <div className="text-[18px] font-bold">1</div>
+                  <div className="text-[12px] text-muted">Live AI SaaS (Rubrica)</div>
                 </div>
               </div>
             </div>
@@ -368,19 +391,132 @@ export default function ServicesPage() {
           </div>
         </section>
 
+        {/* Featured Case Study — Rubrica */}
+        {rubrica.caseStudy && (
+          <section className="py-20">
+            <div className="max-w-6xl mx-auto px-6">
+              <div className="rounded-3xl bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 p-[1px]">
+                <div className="rounded-[23px] bg-white overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]">
+                    {/* Left: content */}
+                    <div className="p-10 sm:p-12">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-[12px] font-semibold uppercase tracking-wider mb-4">
+                        <Sparkles className="w-3 h-3" />
+                        Flagship Case Study
+                      </div>
+                      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
+                        Rubrica — AI rubric feedback SaaS
+                      </h2>
+                      <p className="text-[15px] text-muted leading-relaxed mb-6">
+                        A live production AI web app we designed, built, and
+                        launched end-to-end. Students upload an assignment
+                        brief, rubric, and draft — Rubrica returns
+                        criterion-level coverage with quoted evidence,
+                        voice-preserving rewrites, and CrossRef-verified
+                        citations.
+                      </p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                        <div>
+                          <div className="text-[11px] uppercase tracking-wider text-muted-strong font-semibold mb-1">
+                            Problem
+                          </div>
+                          <p className="text-[13px] text-foreground leading-relaxed">
+                            Students don&apos;t see how their draft maps to the rubric until it&apos;s too late.
+                          </p>
+                        </div>
+                        <div>
+                          <div className="text-[11px] uppercase tracking-wider text-muted-strong font-semibold mb-1">
+                            Solution
+                          </div>
+                          <p className="text-[13px] text-foreground leading-relaxed">
+                            AI pipeline that aligns brief, rubric, and draft into a criterion-by-criterion report.
+                          </p>
+                        </div>
+                        <div>
+                          <div className="text-[11px] uppercase tracking-wider text-muted-strong font-semibold mb-1">
+                            Outcome
+                          </div>
+                          <p className="text-[13px] text-foreground leading-relaxed">
+                            Live SaaS shipping to students in AU, UK, and US — payments, AI, ops, all done.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mb-7">
+                        {rubrica.caseStudy.techStack.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-purple-50 text-purple-700"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap gap-3">
+                        <a
+                          href="https://rubrica.app"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-white text-[14px] font-semibold rounded-full hover:bg-foreground/90 transition-all hover:shadow-lg"
+                        >
+                          Visit rubrica.app
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                        <Link
+                          href="/apps/rubrica"
+                          className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground text-[14px] font-semibold rounded-full hover:bg-surface transition-all"
+                        >
+                          Read the case study
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Right: gradient panel with logo */}
+                    <div className="hidden lg:flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 p-10 relative overflow-hidden">
+                      <div className="absolute top-[-40px] right-[-40px] w-[220px] h-[220px] rounded-full bg-white/10 blur-3xl" />
+                      <div className="absolute bottom-[-40px] left-[-40px] w-[180px] h-[180px] rounded-full bg-white/10 blur-3xl" />
+                      <div className="relative w-[260px] rounded-xl bg-black/20 border border-white/20 backdrop-blur-sm overflow-hidden shadow-2xl">
+                        <div className="flex items-center gap-1.5 px-3 py-2 bg-white/10 border-b border-white/10">
+                          <div className="w-2 h-2 rounded-full bg-red-400/70" />
+                          <div className="w-2 h-2 rounded-full bg-yellow-400/70" />
+                          <div className="w-2 h-2 rounded-full bg-green-400/70" />
+                          <div className="ml-2 text-[10px] text-white/60 font-mono">rubrica.app</div>
+                        </div>
+                        <div className="bg-white p-6 flex items-center justify-center aspect-[16/10]">
+                          <Image
+                            src={rubrica.icon}
+                            alt="Rubrica logo"
+                            width={200}
+                            height={60}
+                            className="w-full max-w-[200px] object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Portfolio — Proof of work */}
         <section id="portfolio" className="py-20 bg-surface/40">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-[12px] font-semibold uppercase tracking-wider mb-4">
-                Our Work
+                More Work
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-                Apps we&apos;ve built and shipped
+                iOS apps we&apos;ve shipped
               </h2>
               <p className="text-muted text-[16px] max-w-lg mx-auto">
-                {apps.length} apps live on the App Store across games, education, and AI utilities.
-                Here&apos;s a selection.
+                8 apps live on the App Store across games, education, and AI
+                utilities — production proof of the same craft we bring to
+                client projects.
               </p>
             </div>
 

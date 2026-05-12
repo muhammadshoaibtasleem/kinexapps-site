@@ -18,42 +18,38 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default:
-      "Kinexapps — Free iOS Games, Education & AI Apps | Australian App Studio",
+      "Kinexapps — Software House for Web SaaS, iOS Apps & AI Products | Melbourne",
     template: "%s | Kinexapps",
   },
   description:
-    "Kinexapps is an Australian mobile app studio crafting free iOS games, education apps, and AI-powered utilities. Download 8 free apps including SnapFix AI home repair, Theory Elite MBA quiz, ABC Kids alphabet learning, Laser Maze, Rollscape marble game, Orb Galaxy Sort, Color Ball Drop 3D, and Learn ABC for toddlers.",
+    "Kinexapps is an Australian software house in Melbourne. We design and ship web SaaS, iOS apps, and AI products end-to-end. Live case studies include rubrica.app (AI rubric SaaS) and 8 App Store apps. Get a free quote.",
   keywords: [
     "Kinexapps",
-    "free iOS apps",
+    "software house Melbourne",
+    "software development agency Australia",
+    "AI SaaS development",
+    "hire a software house",
+    "web SaaS development agency",
+    "Next.js development agency",
+    "Vercel SaaS developer",
+    "AI product development",
+    "rubrica.app",
+    "MVP development Melbourne",
+    "iOS app development Melbourne",
     "Australian app developer",
+    "Swift developer",
+    "free iOS apps",
     "mobile games",
     "education apps",
     "AI apps",
-    "free iOS games",
-    "App Store apps Australia",
-    "Swift developer",
-    "iPhone games",
-    "iPad apps",
     "SnapFix",
     "Theory Elite",
     "ABC Kids",
     "Laser Maze",
     "Rollscape",
     "Orb Galaxy Sort",
-    "Color Ball Drop",
     "Learn ABC",
-    "puzzle games iOS",
     "kids learning apps",
-    "home repair app",
-    "Melbourne app studio",
-    "toddler learning apps",
-    "marble maze game",
-    "ball sort puzzle",
-    "MBA quiz app",
-    "alphabet app for toddlers",
-    "laser puzzle game",
-    "color learning game for kids",
     "AI home repair app",
   ],
   authors: [{ name: "Kinexapps", url: "https://kinexapps.com" }],
@@ -69,15 +65,16 @@ export const metadata: Metadata = {
     url: "https://kinexapps.com",
     siteName: "Kinexapps",
     title:
-      "Kinexapps — Free iOS Games, Education & AI Apps | Australian Studio",
+      "Kinexapps — Software House for Web SaaS, iOS Apps & AI Products",
     description:
-      "Download 8 free iOS apps — games, education tools, and AI utilities. Built with Swift & SwiftUI by an Australian indie studio.",
+      "Melbourne software house. We ship web SaaS, iOS apps, and AI products end-to-end. Live products include rubrica.app and an 8-app iOS portfolio.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kinexapps — Free iOS Games, Education & AI Apps",
+    title:
+      "Kinexapps — Software House for Web SaaS, iOS Apps & AI Products",
     description:
-      "8 free iOS apps — puzzle games, kids learning apps, MBA quiz battles, and AI home repair. Built in Australia.",
+      "Melbourne software house. Live AI SaaS (rubrica.app) + 8 App Store apps. End-to-end product delivery.",
     creator: "@kinexapps",
   },
   robots: {
@@ -92,7 +89,7 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
-  classification: "Mobile App Development Studio",
+  classification: "Software Development Agency",
 };
 
 export default function RootLayout({

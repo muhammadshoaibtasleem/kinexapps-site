@@ -7,19 +7,20 @@ import { apps } from "@/data/apps";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   name: "Kinexapps",
   url: "https://kinexapps.com",
   logo: "https://kinexapps.com/kinexapps-logo.png",
   description:
-    "Australian mobile app studio crafting free iOS games, education tools, and AI-powered utilities for iPhone, iPad, Mac, and Apple Vision.",
+    "Australian software house that designs and ships web SaaS, iOS apps, and AI products end-to-end. Live products include the rubrica.app AI rubric platform and an 8-app iOS portfolio.",
   foundingDate: "2024",
   sameAs: [
     "https://apps.apple.com/au/developer/muhammad-talseem/id1871192120",
+    "https://rubrica.app",
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    contactType: "customer support",
+    contactType: "sales",
     email: "support@kinexapps.com",
     url: "https://kinexapps.com/contact",
     availableLanguage: "English",
@@ -30,19 +31,22 @@ const organizationJsonLd = {
     addressRegion: "VIC",
     addressCountry: "AU",
   },
-  numberOfEmployees: {
-    "@type": "QuantitativeValue",
-    value: 1,
-  },
+  areaServed: "Worldwide",
   knowsAbout: [
+    "Software Development",
+    "Web SaaS Development",
+    "AI Product Development",
     "iOS App Development",
-    "Mobile Games",
-    "Education Technology",
-    "Artificial Intelligence",
+    "Next.js",
+    "TypeScript",
+    "React",
     "Swift",
     "SwiftUI",
-    "SpriteKit",
-    "CoreML",
+    "Vercel",
+    "LLM Integration",
+    "Stripe Payments",
+    "Product Design",
+    "UI/UX",
   ],
 };
 
@@ -52,7 +56,7 @@ const websiteJsonLd = {
   name: "Kinexapps",
   url: "https://kinexapps.com",
   description:
-    "Official website of Kinexapps — Australian mobile app studio with 8 free iOS apps across games, education, and AI utilities.",
+    "Kinexapps — Australian software house building web SaaS, iOS apps, and AI products end-to-end. Case studies, services, and free quotes.",
   publisher: {
     "@type": "Organization",
     name: "Kinexapps",
@@ -130,11 +134,16 @@ export default function Home() {
       />
       {/* Server-rendered heading for SEO — visually hidden, Hero renders the visible version */}
       <div className="sr-only">
-        <h1>We craft apps people love to use — Kinexapps Australian App Studio</h1>
+        <h1>
+          Kinexapps — Australian Software House for Web SaaS, iOS Apps & AI
+          Products
+        </h1>
         <p>
-          Games that challenge your mind. Tools that help you learn. Utilities
-          powered by AI. {apps.length} free iOS apps across games, education,
-          and AI utilities. Built with Swift and SwiftUI in Melbourne, Australia.
+          Kinexapps is a Melbourne-based software house that designs and ships
+          web SaaS, iOS apps, and AI products end-to-end. {apps.length} live
+          products in production — including rubrica.app, an AI rubric-feedback
+          SaaS for students, and an 8-app iOS portfolio across games,
+          education, and AI utilities. Hire us to build your next product.
         </p>
       </div>
       <Hero />

@@ -16,6 +16,8 @@ export interface AppRating {
   count: number;
 }
 
+export type AppType = "ios" | "web";
+
 export interface App {
   id: string;
   name: string;
@@ -24,8 +26,11 @@ export interface App {
   categoryColor: string;
   description: string;
   features: string[];
-  appStoreUrl: string;
-  appStoreId: string;
+  // Distribution
+  appType?: AppType; // defaults to "ios" when omitted
+  appStoreUrl: string; // for web apps this is the product website URL
+  appStoreId?: string; // iOS App Store ID — optional for web apps
+  iconContain?: boolean; // when true, render icon with object-contain + padded background (for non-square logos)
   icon: string;
   gradient: string;
   platforms: string[];
@@ -41,9 +46,113 @@ export interface App {
   // Reviews & ratings
   rating: AppRating;
   reviews: AppReview[];
+  // Optional case-study fields (used on /portfolio)
+  caseStudy?: AppCaseStudy;
+}
+
+export interface AppCaseStudy {
+  client?: string; // "In-house" if our own product
+  year: string;
+  role: string; // e.g. "Design, Engineering, Launch"
+  problem: string;
+  solution: string;
+  outcome: string;
+  techStack: string[];
+  liveUrl?: string;
 }
 
 export const apps: App[] = [
+  {
+    id: "rubrica",
+    name: "Rubrica",
+    subtitle: "AI Rubric Feedback for Students",
+    category: "Web",
+    categoryColor: "bg-purple-500",
+    description:
+      "An AI-powered web platform that helps students close the gap between their draft and the marking rubric. Upload an assignment brief, rubric, and draft — Rubrica returns criterion-by-criterion coverage analysis with quoted evidence, voice-preserving rewrites, and CrossRef-backed citation verification. Built end-to-end as a production SaaS for students across Australia, the UK, and the US.",
+    features: [
+      "Criterion-by-criterion rubric coverage analysis",
+      "Quoted source spans from the draft with revision guidance",
+      "Voice-preserving paragraph rewrites tied to each criterion",
+      "CrossRef-backed citation & hallucination detection",
+      "Multi-format rubric ingestion (PDF, Word, text, images)",
+      "Pay-per-check with automatic credit refunds on failed checks",
+    ],
+    appType: "web",
+    appStoreUrl: "https://rubrica.app",
+    iconContain: true,
+    icon: "/icons/rubrica.png",
+    gradient: "from-purple-500 to-indigo-600",
+    platforms: ["Web"],
+    price: "$0.49 / check",
+    ageRating: "13+",
+    size: "Web app",
+    metaTitle:
+      "Rubrica — AI Rubric Feedback SaaS | Kinexapps Case Study",
+    metaDescription:
+      "Rubrica is an AI rubric-checking SaaS built by Kinexapps. Students upload a brief, rubric, and draft — Rubrica returns criterion-level feedback, evidence, and citation verification. Case study + tech stack.",
+    seoDescription:
+      "Rubrica is a production AI web platform built end-to-end by Kinexapps for students at secondary, undergraduate, and postgraduate levels across Australia, the UK, and the US. The product solves a very specific problem — students rarely know how their draft actually maps to the rubric until it has already been marked. Rubrica closes that loop by analysing assignment briefs, rubrics, and drafts together and returning a criterion-by-criterion coverage report with quoted evidence pulled directly from the student's work.\n\nEvery rubric check returns a structured breakdown: which criteria are strong, which are partially covered, and which are missing entirely. For each gap, Rubrica suggests a voice-preserving rewrite of the relevant paragraph — keeping the student's own tone while strengthening the argument. Citations are verified against CrossRef so hallucinated references and broken DOIs are flagged before the work is submitted.\n\nThe SaaS runs on a pay-per-check credit model ($0.49 per check) with a $1.50 welcome credit, six free tools that require no signup, and automatic refunds when a check fails. The product is fully responsive, accepts rubrics in PDF, Word, plain text, and image formats, and supports unlimited free revisions on the same assignment.\n\nAs a case study for Kinexapps' software-house work, Rubrica covers the full delivery surface: product strategy, UI/UX, frontend, backend, AI pipeline, payments, citation verification, and ongoing operations. It is the clearest example of the kind of web product we build for clients who want a serious AI SaaS shipped end-to-end.",
+    keywords: [
+      "AI rubric checker",
+      "rubric feedback for students",
+      "assignment feedback AI",
+      "essay rubric analysis",
+      "academic writing AI tool",
+      "citation verification SaaS",
+      "Rubrica",
+      "Kinexapps web SaaS",
+      "AI SaaS development case study",
+      "Next.js AI app development",
+      "student writing feedback platform",
+      "build an AI SaaS",
+    ],
+    faqs: [
+      {
+        question: "What is Rubrica?",
+        answer:
+          "Rubrica is an AI-powered web platform that gives students rubric-aware feedback on their assignment drafts. Upload the brief, the rubric, and the draft — Rubrica returns criterion-by-criterion coverage analysis, quoted evidence, voice-preserving rewrites, and citation verification.",
+      },
+      {
+        question: "Who built Rubrica?",
+        answer:
+          "Rubrica was designed, built, and shipped end-to-end by Kinexapps — product strategy, UI/UX, web app, AI pipeline, citation verification, payments, and ongoing operations. It is a production case study of the kind of AI SaaS we can build for clients.",
+      },
+      {
+        question: "What does Rubrica cost to use?",
+        answer:
+          "Rubrica runs on a pay-per-check credit model — $0.49 per rubric check, with a $1.50 welcome credit on signup. Six free tools require no signup, and failed checks are automatically refunded.",
+      },
+      {
+        question: "Can Kinexapps build a SaaS like Rubrica for me?",
+        answer:
+          "Yes. Rubrica is the clearest example of the kind of AI-powered web SaaS we deliver end-to-end. If you're looking to ship an AI product — landing page, app, backend, AI pipeline, payments, and analytics — get in touch via the contact form for a free quote.",
+      },
+    ],
+    rating: { average: 0, count: 0 },
+    reviews: [],
+    caseStudy: {
+      client: "In-house Kinexapps product",
+      year: "2026",
+      role: "Product, Design, Engineering, AI, Launch",
+      problem:
+        "Students get rubric-graded but rarely see how their draft maps to each criterion before submitting. Generic AI writing tools don't read the rubric, don't quote evidence from the draft, and hallucinate citations.",
+      solution:
+        "An AI web app that ingests the brief, rubric, and draft together and returns a structured criterion-by-criterion coverage report with quoted evidence, voice-preserving paragraph rewrites, and CrossRef-verified citations. Pay-per-check pricing with automatic credit refunds on failed checks.",
+      outcome:
+        "Live SaaS serving students across Australia, the UK, and the US. Production AI pipeline, payment system, and citation verification shipped end-to-end. Demonstrates Kinexapps' ability to deliver a complete AI product, not just a UI shell.",
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "AI / LLM pipeline",
+        "CrossRef API",
+        "Stripe (credits)",
+        "Vercel",
+      ],
+      liveUrl: "https://rubrica.app",
+    },
+  },
   {
     id: "snapfix",
     name: "SnapFix",
@@ -1141,6 +1250,7 @@ export const apps: App[] = [
 
 export const categories = [
   { name: "All", count: apps.length },
+  { name: "Web", count: apps.filter((a) => a.category === "Web").length },
   { name: "Games", count: apps.filter((a) => a.category === "Games").length },
   {
     name: "Education",

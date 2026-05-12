@@ -180,10 +180,10 @@ function CircuitBoard() {
 /* ── Floating code snippet (glassmorphism card) ── */
 function CodeSnippet({ className, delay }: { className?: string; delay: number }) {
   const lines = [
-    { indent: 0, color: "text-purple-400", text: "func" , rest: " buildApp() {", restColor: "text-slate-500" },
-    { indent: 1, color: "text-blue-400", text: "let", rest: " features = loadModules()", restColor: "text-slate-400" },
-    { indent: 1, color: "text-blue-400", text: "let", rest: " ui = SwiftUI.render()", restColor: "text-slate-400" },
-    { indent: 1, color: "text-emerald-400", text: "await", rest: " deploy(to: .appStore)", restColor: "text-slate-400" },
+    { indent: 0, color: "text-purple-400", text: "export async function", rest: " ship() {", restColor: "text-slate-500" },
+    { indent: 1, color: "text-blue-400", text: "const", rest: " ui = await design.system()", restColor: "text-slate-400" },
+    { indent: 1, color: "text-blue-400", text: "const", rest: " api = await build.backend()", restColor: "text-slate-400" },
+    { indent: 1, color: "text-emerald-400", text: "await", rest: " vercel.deploy(prod)", restColor: "text-slate-400" },
     { indent: 0, color: "text-purple-400", text: "}", rest: "", restColor: "" },
   ];
 
@@ -199,7 +199,7 @@ function CodeSnippet({ className, delay }: { className?: string; delay: number }
         <div className="w-2 h-2 rounded-full bg-red-400/60" />
         <div className="w-2 h-2 rounded-full bg-yellow-400/60" />
         <div className="w-2 h-2 rounded-full bg-green-400/60" />
-        <span className="ml-2 text-[9px] text-muted-strong font-sans">App.swift</span>
+        <span className="ml-2 text-[9px] text-muted-strong font-sans">ship.ts</span>
       </div>
       {lines.map((line, i) => (
         <div key={i} style={{ paddingLeft: `${line.indent * 16}px` }}>
@@ -235,12 +235,12 @@ function TerminalSnippet({ className, delay }: { className?: string; delay: numb
 
 /* ── Floating tech badges ── */
 const techBadges = [
-  { label: "Swift", icon: "⟨⟩", color: "from-orange-400 to-orange-500", pos: "top-[18%] left-[6%]", delay: 0 },
-  { label: "SwiftUI", icon: "◆", color: "from-blue-400 to-blue-600", pos: "top-[25%] right-[5%]", delay: 1.5 },
-  { label: "CoreML", icon: "◎", color: "from-purple-400 to-purple-600", pos: "bottom-[30%] left-[3%]", delay: 3 },
-  { label: "ARKit", icon: "◈", color: "from-pink-400 to-pink-600", pos: "bottom-[22%] right-[6%]", delay: 4.5 },
-  { label: "AI", icon: "⬡", color: "from-emerald-400 to-emerald-600", pos: "top-[55%] left-[8%]", delay: 2 },
-  { label: "SpriteKit", icon: "△", color: "from-cyan-400 to-cyan-600", pos: "top-[12%] right-[18%]", delay: 3.5 },
+  { label: "Next.js", icon: "▲", color: "from-slate-700 to-slate-900", pos: "top-[18%] left-[6%]", delay: 0 },
+  { label: "Swift", icon: "⟨⟩", color: "from-orange-400 to-orange-500", pos: "top-[25%] right-[5%]", delay: 1.5 },
+  { label: "AI / LLM", icon: "⬡", color: "from-emerald-400 to-emerald-600", pos: "bottom-[30%] left-[3%]", delay: 3 },
+  { label: "TypeScript", icon: "TS", color: "from-blue-500 to-blue-700", pos: "bottom-[22%] right-[6%]", delay: 4.5 },
+  { label: "SwiftUI", icon: "◆", color: "from-blue-400 to-blue-600", pos: "top-[55%] left-[8%]", delay: 2 },
+  { label: "React", icon: "◎", color: "from-cyan-400 to-cyan-600", pos: "top-[12%] right-[18%]", delay: 3.5 },
 ];
 
 /* ═══════════════════════════════════════
@@ -328,37 +328,46 @@ export default function Hero() {
           {/* Eyebrow */}
           <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border bg-white/70 backdrop-blur-sm text-[13px] text-muted font-medium tracking-wide mb-6 shadow-sm">
             <span className="relative w-2 h-2 rounded-full bg-emerald-500 pulse-ring" />
-            Australian App Studio
-            <span className="ml-1 text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent font-semibold">iOS</span>
+            Australian Software House
+            <span className="ml-1 text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent font-semibold">Web · iOS · AI</span>
           </div>
 
           {/* Visual headline — server-rendered <h1> lives in page.tsx for SEO */}
           <div aria-hidden="true" className="hero-reveal hero-delay-1 text-[clamp(2.8rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.04em] text-foreground mb-5">
-            We craft apps
+            We ship the products
             <br />
-            <span className="shimmer-text">people love to use</span>
+            <span className="shimmer-text">your business is missing</span>
           </div>
 
           {/* Subtitle */}
           <p className="hero-reveal hero-delay-2 text-lg sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto mb-8">
-            Games that challenge your mind. Tools that help you learn.
-            Utilities powered by AI. {apps.length} apps, free for everyone.
+            Web SaaS, iOS apps, and AI products built end-to-end. {apps.length} live
+            products in production — including the AI rubric platform{" "}
+            <a
+              href="https://rubrica.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent font-semibold hover:underline"
+            >
+              rubrica.app
+            </a>
+            . Hire the team that actually ships.
           </p>
 
           {/* CTA buttons */}
           <div className="hero-reveal hero-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#apps"
+              href="/contact?subject=quote"
               className="group relative inline-flex items-center gap-2 px-8 py-3.5 bg-foreground text-white text-[15px] font-semibold rounded-full hover:shadow-lg hover:shadow-foreground/10 transition-all duration-300 hover:-translate-y-0.5"
             >
-              View our apps
+              Get a free quote
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </a>
             <a
-              href="/about"
+              href="/portfolio"
               className="inline-flex items-center gap-2 px-8 py-3.5 border border-border bg-white/60 backdrop-blur-sm text-[15px] font-semibold rounded-full text-foreground hover:bg-white hover:border-border-light hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
             >
-              Learn more
+              See our work
             </a>
           </div>
         </div>
@@ -368,13 +377,20 @@ export default function Hero() {
           {featured.map((app, i) => (
             <a key={app.id} href={`/apps/${app.id}`} className="group relative">
               <div
-                className="w-[68px] h-[68px] sm:w-[88px] sm:h-[88px] rounded-[20px] sm:rounded-[24px] overflow-hidden border border-border/80 bg-white shadow-lg shadow-black/5 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-black/10 group-hover:-translate-y-3 group-hover:scale-105"
+                className={`w-[68px] h-[68px] sm:w-[88px] sm:h-[88px] rounded-[20px] sm:rounded-[24px] overflow-hidden border border-border/80 bg-white shadow-lg shadow-black/5 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-black/10 group-hover:-translate-y-3 group-hover:scale-105 ${app.iconContain ? "flex items-center justify-center p-3" : ""}`}
                 style={{
                   animation: `iconFloat 4s ease-in-out infinite`,
                   animationDelay: `${i * 0.4}s`,
                 }}
               >
-                <Image src={app.icon} alt={`${app.name} — ${app.subtitle} iOS app icon`} width={88} height={88} className="w-full h-full object-cover" priority={i < 3} />
+                <Image
+                  src={app.icon}
+                  alt={`${app.name} — ${app.subtitle} ${app.appType === "web" ? "logo" : "iOS app icon"}`}
+                  width={88}
+                  height={88}
+                  className={`w-full h-full ${app.iconContain ? "object-contain" : "object-cover"}`}
+                  priority={i < 3}
+                />
               </div>
               <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:-translate-y-1">
                 <span className="text-[12px] font-medium text-muted whitespace-nowrap px-2.5 py-1 rounded-full bg-white border border-border shadow-sm">
@@ -389,15 +405,15 @@ export default function Hero() {
         <div className="hero-reveal hero-delay-5 mt-16 flex items-center justify-center">
           <div className="flex items-center divide-x divide-border border border-border rounded-2xl bg-white/70 backdrop-blur-sm px-2 py-5 shadow-sm">
             {[
-              { val: String(apps.length), label: "Apps Published", suffix: "" },
-              { val: "3", label: "Categories", suffix: "" },
-              { val: "Free", label: "Always", suffix: "" },
+              { val: String(apps.length), label: "Products Shipped", suffix: "" },
+              { val: "4", label: "Platforms", suffix: "" },
+              { val: "24h", label: "Quote Response", suffix: "" },
             ].map((m) => (
               <div key={m.label} className="px-8 sm:px-10 text-center">
-                {m.val === "Free" ? (
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">Free</div>
-                ) : (
+                {/^\d+$/.test(m.val) ? (
                   <AnimatedCounter target={m.val} suffix={m.suffix} />
+                ) : (
+                  <div className="text-2xl sm:text-3xl font-bold text-foreground">{m.val}</div>
                 )}
                 <div className="text-[12px] text-muted-strong mt-1 font-medium">{m.label}</div>
               </div>

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Kinexapps — Australian Mobile App Studio";
+export const alt = "Kinexapps — Australian Software House for Web SaaS, iOS & AI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -66,7 +66,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          8 Free iOS Apps &bull; Games &bull; Education &bull; AI
+          Software House &bull; Web SaaS &bull; iOS &bull; AI Products
         </div>
       </div>
     ),

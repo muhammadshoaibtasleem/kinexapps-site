@@ -41,9 +41,20 @@ export default async function Image({ params }: { params: Promise<{ id: string }
     "from-violet-500 to-purple-700": ["#8b5cf6", "#7e22ce"],
     "from-pink-400 to-rose-600": ["#f472b6", "#e11d48"],
     "from-teal-400 to-green-600": ["#2dd4bf", "#16a34a"],
+    "from-purple-500 to-indigo-600": ["#a855f7", "#4f46e5"],
+    "from-blue-500 to-cyan-600": ["#3b82f6", "#0891b2"],
+    "from-lime-500 to-green-600": ["#84cc16", "#16a34a"],
+    "from-amber-500 to-orange-600": ["#f59e0b", "#ea580c"],
+    "from-violet-500 to-fuchsia-600": ["#8b5cf6", "#c026d3"],
+    "from-emerald-500 to-teal-600": ["#10b981", "#0d9488"],
   };
 
   const [color1, color2] = gradientColors[app.gradient] || ["#3b82f6", "#6366f1"];
+
+  const isWeb = app.appType === "web";
+  const metaTags = isWeb
+    ? [app.category, app.price, "Case Study"]
+    : [app.category, app.price, `Ages ${app.ageRating}`];
 
   return new ImageResponse(
     (
@@ -146,7 +157,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
           </div>
 
           <div style={{ display: "flex", gap: 20, marginTop: 8 }}>
-            {[app.category, app.price, `Ages ${app.ageRating}`].map((tag) => (
+            {metaTags.map((tag) => (
               <div
                 key={tag}
                 style={{
@@ -177,7 +188,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
             alignItems: "center",
           }}
         >
-          Kinexapps — Australian App Studio
+          Kinexapps — Australian Software House
         </div>
       </div>
     ),
